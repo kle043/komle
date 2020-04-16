@@ -12,8 +12,9 @@ setup(
       package_data={
                     'komle': ['WMLS.WSDL'],
                    },
-      install_requires=[
-                        'PyXB==1.2.6'
+      install_requires=['suds-py3==1.4.0.0',
+                        'PyXB==1.2.6',
+
                        ], 
       tests_require=[
                      'pytest>=3.0'
