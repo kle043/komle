@@ -10,7 +10,7 @@ sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples
                                            "risk.xml", 
                                            "trajectory.xml", 
                                            "wellbore.xml"])
-def test_eval(test_filename):
+def test_unmarshalling(test_filename):
     print(os.path.join(sample_path, test_filename))
     with open(os.path.join(sample_path, test_filename), 'r') as test_file:
         obj = pywitsml.CreateFromDocument(test_file.read())
