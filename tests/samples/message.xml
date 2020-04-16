@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://www.witsml.org/schemas/1series" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.4.1.1">
+  <message uidWell="a03e86c7-72c1-414e-aecc-8ea3c5" uidWellbore="5ed5bb6b-f6e5-465b-9779-d87220f9" uid="37e3ce3a-8500-45ed-8f52-95bd467a7c0d" xmlns="http://www.witsml.org/schemas/1series">
+    <nameWell>EnergisticsWell2016-A</nameWell>
+    <nameWellbore>EnergisticsWellbore2016-A</nameWellbore>
+    <name>MSG-37e3ce3a-8500-45ed-8f52-95bd467a7c0d</name>
+    <dTim>2016-02-28T12:15:05.015Z</dTim>
+    <typeMessage>alarm</typeMessage>
+    <messageText>Transfer from Pit 21 to Pit 26</messageText>
+    <commonData>
+      <sourceName>GeoServices</sourceName>
+      <dTimCreation>2016-04-04T11:51:57.090Z</dTimCreation>
+      <dTimLastChange>2016-04-04T11:51:57.090Z</dTimLastChange>
+      <comments>Message Object</comments>
+      
+      
+      
+      
+      
+    </commonData>
+    <customData>
+      <IASectionName xmlns:xsd="http://www.w3.org/2001/XMLSchema">12.25in_drilling_run05</IASectionName>
+    </customData>
+  </message>
+</messages>
