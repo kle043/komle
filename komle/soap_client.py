@@ -3,7 +3,7 @@ from suds.client import Client
 from komle.read_bindings import witsml
 from typing import Union
 
-def pretty_print(element, filepath:str)
+def pretty_print(element, filepath:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
@@ -32,7 +32,7 @@ def simple_client(service_url: str, username: str, password: str, agent_name: st
     return client
 
 class StoreClient:
-    def __init__(self, service_url: str, username: str, password: str, agent_name: str='komle')
+    def __init__(self, service_url: str, username: str, password: str, agent_name: str='komle'):
         '''Create a GetFromStore client, 
         
         This initializes the client with a local version of WMLS.WSDL 1.4 from energistics.
@@ -44,7 +44,7 @@ class StoreClient:
             agent_name (str): User-Agent name to pass in header
         '''
     
-        self.soap_client = simple_client(service_url
+        self.soap_client = simple_client(service_url,
                                          username,
                                          password,
                                          agent_name)
