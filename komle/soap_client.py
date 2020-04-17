@@ -3,7 +3,7 @@ from suds.client import Client
 from komle.read_bindings import witsml
 from typing import Union
 
-def pretty_print(element, filepath:str):
+def pretty_save(element, filepath:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
