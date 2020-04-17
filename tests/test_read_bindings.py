@@ -11,7 +11,8 @@ sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples
                                            "trajectory.xml", 
                                            "wellbore.xml"])
 def test_unmarshalling(test_filename):
-    print(os.path.join(sample_path, test_filename))
+''' Test that unmarshalling energistics well A files goes fine
+'''
     with open(os.path.join(sample_path, test_filename), 'r') as test_file:
         obj = pywitsml.CreateFromDocument(test_file.read())
 
