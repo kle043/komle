@@ -105,7 +105,7 @@ class StoreClient:
         q_logs.append(q_log)
     
         reply_logs = self.soap_client.service.WMLS_GetFromStore('log',
-                                                                q_bhas.toxml(),
+                                                                q_logs.toxml(),
                                                                 OptionsIn=f'returnElements={returnElements}'
                                                                )
 
