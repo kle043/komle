@@ -25,4 +25,20 @@ for geo_int in mud_log.geologyInterval:
     print(f'{geo_int.mdBottom.value()} - {geo_int.mdTop.value()}  {geo_int.mdTop.uom}')
     for lit in geo_int.lithology:
         print(f'Lit: {lit.lithPc.value()} {lit.lithPc.uom}')
+
 # %%
+
+store_client = StoreClient(service_url='https://my-witsml-server',
+                           username='myusername',
+                           password='mypassword')
+# %%
+
+id_logs = store_client.get_logs(witsml.obj_log())
+
+len(id_logs.log)
+
+# %%
+
+full_log = store_client.get_logs(id_logs.log[0], returnElements='all')
+
+pretty_save(full_log, 'log.xml')
