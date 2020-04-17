@@ -3,6 +3,10 @@ from suds.client import Client
 from komle.read_bindings import witsml
 from typing import Union
 
+def pretty_print(element, filepath:str)
+    with open(file_path, 'w') as xml_file:
+        xml_file.write(element.toDOM().toprettyxml())
+
 def simple_client(service_url: str, username: str, password: str, agent_name: str='komle') -> Client:
     '''Create a simple soap client using Suds, 
     
