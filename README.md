@@ -7,3 +7,8 @@ komle, the name of a dish, is a python library to make it easier to work with WI
 ``` bash
 pip3 install git+ssh://git@github.com:knle88/komle.git
 ```
+Or if cloned the repo
+
+``` bash
+pip3 install -U .
+```
