@@ -9,7 +9,7 @@ This code is just a fast write up of how to work with witsml in python.
 ``` bash
 pip3 install git+ssh://git@github.com/knle88/komle.git
 ```
-Or if cloned the repo
+Or if the repo is cloned
 
 ``` bash
 pip3 install -U .
@@ -29,5 +29,5 @@ print(logs._element().documentation())
 
 print([l.name for l in logs.log])
 ```
-
-also see `examples/hello_witsml.py`
+`witsml.CreateFromDocument` works on any witsml object, like trajectorys, mudLogs, tubulars etc, and returns a python representation according to 
+the schema. Nodes are converted to there corresponding python types and accessed like any other python object, the exception is leaf nodes with attributes where one must call `value()` since primitive types in python does not have custom attributes. For example `mdTop.value()` where mdTop also has the attribute `mdTop.uom`, also see `examples/hello_witsml.py`.
