@@ -9,6 +9,7 @@ This code is just a fast write up of how to work with witsml in python.
 ``` bash
 pip3 install git+ssh://git@github.com/knle88/komle.git
 ```
+
 Or if the repo is cloned
 
 ``` bash
@@ -27,7 +28,11 @@ with open('log.xml', 'r') as log_file:
 # Print the witsml documentation for logs
 print(logs._element().documentation())
 
+# Print the schema location for logCurveInfo, nice to have for reference
+print(logs.log[0].logCurveInfo[0]._element().xsdLocation().locationBase)
+
 print([l.name for l in logs.log])
 ```
+
 `witsml.CreateFromDocument` works on any witsml object, like trajectorys, mudLogs, tubulars etc, and returns a python representation according to 
-the schema. Nodes are converted to there corresponding python types and accessed like any other python object, the exception is leaf nodes with attributes where one must call `value()` since primitive types in python does not have custom attributes. For example `mdTop.value()` where mdTop also has the attribute `mdTop.uom`, also see `examples/hello_witsml.py`.
+the schema. Nodes are converted to there corresponding python types and accessed like any other python object, the exception is leaf nodes with attributes where one must call `value()` since primitive types in python does not have custom attributes. For example `mdTop.value()` where mdTop also has the attribute `mdTop.uom`, also see [examples/hello_witsml.py](examples/hello_witsml.py).
