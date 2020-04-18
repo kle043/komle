@@ -51,9 +51,9 @@ print(log.logData[0].mnemonicList)
 # Print the documentation from the schema for logData
 print(log.logData[0]._element().documentation())
 
-# %% Build a dict of data points
+# %% Build a dict of data points from logData
 
-# There can be other primitive types then the ones in prim_types
+# There can be other primitive types then the ones in this log
 prim_types = {'date time':witsml.timestamp, 'double':float, 'string':str} 
 # Get the types from curveInfo, we are looking at date time as the indexCurve
 mnem_cast_map = {c.mnemonic.value():prim_types[c.typeLogData] for c in log.logCurveInfo}
@@ -81,8 +81,9 @@ print(f'Unit TIME {unit_dict["TIME"]}')
 print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
-#%%
+
 # %% Soap client using wsdl
+# This will fail if you don't have credentials to a witsml server
 store_client = StoreClient(service_url='https://my-witsml-server',
                            username='myusername',
                            password='mypassword')
