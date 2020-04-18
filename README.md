@@ -15,7 +15,7 @@ Or if the repo is cloned
 pip3 install -U .
 ```
 
-## Get started
+## Getting started
 
 ``` bash
 from komle.read_bindings import witsml
