@@ -14,3 +14,16 @@ Or if cloned the repo
 ``` bash
 pip3 install -U .
 ```
+
+## Get started
+
+``` bash
+from komle.read_bindings import witsml
+
+with open('log.xml', 'r') as log_file:
+    # logs is a regular python object according to the witsml schema
+    logs = witsml.CreateFromDocument(log_file.read())
+
+print([l.name for l in logs.log])
+
+```
