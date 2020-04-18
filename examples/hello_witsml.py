@@ -10,13 +10,12 @@ with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as mud_file:
     mud_logs = witsml.CreateFromDocument(mud_file.read())
 
 # %%
+print(mud_logs.mudLog[0].name)
+# it is convenient with a pretty xml 
 pretty_save(mud_logs, 'mudlog.xml')
 
-# %%
-
-print(mud_logs.mudLog[0].name)
-
 # %% Take the mudLog, mud_logs is a container for several mudLog
+
 mud_log = mud_logs.mudLog[0]
 print(f'nameWellbore = {mud_log.nameWellbore}')
 print(f'Start {mud_log.startMd.value()} {mud_log.startMd.uom}')
