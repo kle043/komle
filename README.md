@@ -1,6 +1,6 @@
 # komle
 
-komle, a python library for [WITSML v1.4.1.1](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/index_witsml_schema.html), uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the generated read schemas. It also comes with a Soap client to request data from a witsml server, according to the [webservice description](http://w3.energistics.org/schema/witsml_v1.4.0_api/WMLS.WSDL).
+komle, a python library for [WITSML v1.4.1.1](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/index_witsml_schema.html), uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the generated read schemas. It also comes with a Soap client to request data from a witsml server, according to the [webservice description](http://w3.energistics.org/schema/witsml_v1.4.0_api/WMLS.WSDL). There is also an experimental unit converter based on [witsmlUnitDict](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/ancillary/witsmlUnitDict.xml)
 
 ## Install
 

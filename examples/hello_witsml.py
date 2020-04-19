@@ -9,6 +9,7 @@ or just run it using python3
 import os
 from komle.read_bindings import witsml
 from komle.soap_client import StoreClient, pretty_save
+from komle.uom_converter import conversion_factor
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
@@ -32,6 +33,11 @@ for geo_int in mud_log.geologyInterval:
     print(f'{geo_int.mdBottom.value()} - {geo_int.mdTop.value()}  {geo_int.mdTop.uom}')
     for lit in geo_int.lithology:
         print(f'Lit: {lit.lithPc.value()} {lit.lithPc.uom}')
+
+#%% Use the witml unit dict binding to convert unit
+
+feet_factor = conversion_factor(mud_log.startMd.uom, 'ft')
+print(mud_log.startMd.value()*feet_factor)
 
 #%% Work with log files
 
