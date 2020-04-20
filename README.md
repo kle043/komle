@@ -18,6 +18,8 @@ pip3 install -U .
 
 ``` bash
 from komle.read_bindings import witsml
+from komle import utils as ku
+import pandas as pd # Not part of komle requirements
 
 with open('log.xml', 'r') as log_file:
     # logs is a regular python object according to the witsml schema
@@ -30,6 +32,13 @@ print(logs._element().documentation())
 print(logs.log[0].logCurveInfo[0]._element().xsdLocation().locationBase)
 
 print([l.name for l in logs.log])
+
+# Convert logdata to a dict
+log = logs.log[0]
+data_dict = ku.logdata_to_dict(log)
+
+# Create a dataframe, if you have installed pandas
+df = df.DataFrame(data_dict)
 ```
 
 `witsml.CreateFromDocument` works on any witsml object, like trajectorys, mudLogs, tubulars etc, and returns a python representation according to 
