@@ -12,7 +12,6 @@ from komle.read_bindings import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
 from komle import utils as ku
-
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
 #%% Open a mud log and unmarshall it
@@ -82,6 +81,7 @@ print(log.logData[0]._element().documentation())
 
 data_dict = ku.logdata_to_dict(log)
 
+# %%
 # %% Print some data points you can also push data_dict into a dataframe
 
 # The default delimiter is ,
@@ -92,6 +92,10 @@ print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
+
+#%% If you have pandas installed
+#import pandas as pd
+#pd.DataFrame(data_dict)
 
 # %% Soap client using wsdl
 
