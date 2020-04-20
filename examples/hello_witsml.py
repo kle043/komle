@@ -114,7 +114,7 @@ print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 # %% Soap client using wsdl
 
 # This will fail if you don't have credentials to a witsml server
-store_client = StoreClient(service_url='https://my-witsml-server',
+store_client = StoreClient(service_url='https://MY-WITSML-SERVER/store/witsml',
                            username='myusername',
                            password='mypassword')
 # %%
