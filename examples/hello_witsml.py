@@ -11,7 +11,7 @@ import os
 from komle.read_bindings import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
-from komle.utils import pretty_save
+from komle import utils as ku
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
@@ -24,7 +24,7 @@ with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as mud_file:
 
 print(mud_logs.mudLog[0].name)
 # it is convenient with a pretty xml 
-pretty_save(mud_logs, 'mudlog.xml')
+ku.pretty_save(mud_logs, 'mudlog.xml')
 
 # %% Take the mudLog, mud_logs is a container for several mudLog
 
@@ -66,7 +66,7 @@ print(logs.log[0].logCurveInfo[0]._element().xsdLocation().locationBase)
 #%%
 
 # It is helpful to pretty save the object we look at
-pretty_save(logs, 'log.xml')
+ku.pretty_save(logs, 'log.xml')
 
 #%%
 
@@ -78,38 +78,20 @@ print(log.logData[0].mnemonicList)
 # Print the documentation from the schema for logData
 print(log.logData[0]._element().documentation())
 
-# %% Build a dict of data points from logData
+# %% Build a dict of data points from logData using ku
 
-# There can be other primitive types then the ones in this log
-prim_types = {'date time':witsml.timestamp, 'double':float, 'string':str}
+data_dict = ku.logdata_to_dict(log)
 
-# Get the types from logCurveInfo, we are looking at time indexed data .i.e date time
-mnem_cast_map = {c.mnemonic.value():prim_types[c.typeLogData] for c in log.logCurveInfo}
+# %% Print some data points you can also push data_dict into a dataframe
 
-#%%
-
-# The default delimiter is , 
+# The default delimiter is ,
 delimiter = ',' if log.dataDelimiter is None else log.dataDelimiter
-
-data_list = [(mnem, mnem_cast_map[mnem], []) for mnem in log.logData[0].mnemonicList.split(delimiter)]
-unit_dict = {mnem:uom for mnem, uom in zip(log.logData[0].mnemonicList.split(delimiter),
-                                           log.logData[0].unitList.split(delimiter))}
-for data_str in log.logData[0].data:
-    for i, point_str in enumerate(data_str.split(delimiter)):
-        if point_str:
-            value_cast = data_list[i][1]
-            data_list[i][2].append(value_cast(point_str))
-        else:
-            data_list[i][2].append(None)
-
-data_dict = {mnem:values for mnem, _, values in data_list}
-
-# %%
-
+unit_dict = {mnem:uom for mnem, uom in zip(log.logData[0].mnemonicList.split(delimiter), log.logData[0].mnemonicList.split(delimiter))}
 print(f'Unit TIME {unit_dict["TIME"]}')
 print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
+print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
 
 # %% Soap client using wsdl
 
@@ -127,7 +109,7 @@ len(id_logs.log)
 
 full_log = store_client.get_logs(id_logs.log[0], returnElements='all')
 
-pretty_save(full_log, 'log.xml')
+ku.pretty_save(full_log, 'log.xml')
 
 # %%
 
