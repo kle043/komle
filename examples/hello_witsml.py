@@ -6,14 +6,17 @@ or just run it using python3
 
 
 #%%
+
 import os
 from komle.read_bindings import witsml
-from komle.soap_client import StoreClient, pretty_save
-from komle.uom_converter import conversion_factor
+from komle.soap_client import StoreClient
+from komle.uom_converter import conversion_factor, get_unit
+from komle.utils import pretty_save
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
-#%% Open a mud log and unmarshall it 
+#%% Open a mud log and unmarshall it
+ 
 with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as mud_file:
     mud_logs = witsml.CreateFromDocument(mud_file.read())
 
@@ -34,8 +37,14 @@ for geo_int in mud_log.geologyInterval:
     for lit in geo_int.lithology:
         print(f'Lit: {lit.lithPc.value()} {lit.lithPc.uom}')
 
-#%% Use the witml unit dict binding to convert unit
+#%% Lookup a witsml unit annotation
 
+uom = get_unit('ft')
+print(uom.Name)
+print([quantity for quantity in uom.QuantityType])
+print(uom.toxml())
+
+# %% Use the witml unit dict binding to convert unit
 feet_factor = conversion_factor(mud_log.startMd.uom, 'ft')
 print(mud_log.startMd.value()*feet_factor)
 
@@ -105,7 +114,7 @@ print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 # %% Soap client using wsdl
 
 # This will fail if you don't have credentials to a witsml server
-store_client = StoreClient(service_url='https://my-witsml-server',
+store_client = StoreClient(service_url='https://MY-WITSML-SERVER/store/witsml',
                            username='myusername',
                            password='mypassword')
 # %%
