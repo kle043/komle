@@ -26,3 +26,15 @@ def test_log_to_dict(test_filename):
     else:
         assert isinstance(logdata_dict[logs.log[0].indexCurve][0], datetime)
 
+
+@pytest.mark.parametrize("test_filename,attr", 
+                        [("risk.xml", 'risk'),  
+                         ])
+def test_to_flat_dict(test_filename, attr):
+
+    with open(os.path.join(sample_path, 'risk.xml'), 'r') as test_file:
+        obj = witsml.CreateFromDocument(test_file.read())
+    
+    flatt_witsml = ku.to_flat_dict(obj.risk[0])
+
+    assert 0
