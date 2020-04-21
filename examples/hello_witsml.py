@@ -79,7 +79,7 @@ print(log.logData[0]._element().documentation())
 
 # %% Build a dict of data points from logData using ku
 
-data_dict = ku.logdata_to_dict(log)
+data_dict = ku.logdata_frame(log)
 
 # %%
 # %% Print some data points you can also push data_dict into a dataframe
