@@ -52,12 +52,17 @@ def logdata_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List
     
     return {mnem:values for mnem, _, values in data_list}
 
-def obj_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', start_idx: int=0) -> Dict[str, 'witsml.datatype']:
+def obj_dict(obj: 'witsml.obj_', 
+             include_attr: bool=False,
+             prefix_attr: str='',
+             delimiter: str='.', 
+             start_idx: int=0) -> Dict[str, 'witsml.datatype']:
     '''Flatten a witsml object into a flat dict
 
     Args:
         obj(witsml.obj_...): A singular witsml object for example obj_trajectory, obj_mudLog etc
-        include_attr(bool):Also take attributes
+        include_attr(bool): Also take attributes
+        prefix_attr(str): Give attributes a prefix for example @, default no prefix
         delimiter(str): Deplimiter for nested elements, default . as in python
         start_idx(int): Start index for items in list, default 0
 
@@ -84,7 +89,7 @@ def obj_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', s
         elif include_attr:
 
             for attr_use in obj._AttributeMap.values():
-                next_path = delimiter.join(filter(None, [base_name, attr_use.id()]))
+                next_path = delimiter.join(filter(None, [base_name, prefix_attr+attr_use.id()]))
                 flatten_witsml[next_path] = attr_use.value(obj)
         
         if isinstance(obj, pyxb.binding.basis.complexTypeDefinition) and obj._ContentTypeTag not in (obj._CT_EMPTY, obj._CT_SIMPLE):
@@ -108,8 +113,11 @@ def obj_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', s
     return flatten_witsml
 
 def plural_dict(plural_obj: pyxb.binding.content._PluralBinding, 
-                 include_attr: bool=False, fill_missing: bool=True,
-                 delimiter: str='.', start_idx: int=0) -> Dict[str, List['witsml.datatype']]:
+                 include_attr: bool=False, 
+                 fill_missing: bool=True,
+                 prefix_attr: str='',
+                 delimiter: str='.', 
+                 start_idx: int=0) -> Dict[str, List['witsml.datatype']]:
     '''Convert a plural witsml obj into a dict frame
 
     This is a dict where each leaf node path is the key to a list of data values.
@@ -119,6 +127,7 @@ def plural_dict(plural_obj: pyxb.binding.content._PluralBinding,
                                                          trajectoryStation in trajectory, geologyInterval in mudLog,
                                                          mudLog in mudLogs etc
         include_attr(bool):Also take attributes
+        prefix_attr(str): Give attributes a prefix for example @, default no prefix
         fill_missing(bool): If True set missing data to None, else ignore
         delimiter(str): Deplimiter for nested elements, default . as in python
         start_idx(int): Start index for items in list, default 0
@@ -132,7 +141,7 @@ def plural_dict(plural_obj: pyxb.binding.content._PluralBinding,
     existing_keys = set()
     for obj in plural_obj:
 
-        flatten_witsml = obj_dict(obj, include_attr, delimiter, start_idx)
+        flatten_witsml = obj_dict(obj, include_attr, prefix_attr, delimiter, start_idx)
         frame_list.append(flatten_witsml)
         existing_keys.update(list(flatten_witsml.keys()))
 
