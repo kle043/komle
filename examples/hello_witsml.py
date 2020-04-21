@@ -111,10 +111,6 @@ print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
 
-#%% If you have pandas installed
-#import pandas as pd
-#pd.DataFrame(data_dict)
-
 # %% Soap client using wsdl
 
 # This will fail if you don't have credentials to a witsml server
