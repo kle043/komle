@@ -35,6 +35,8 @@ def test_to_flat_dict(test_filename, attr):
     with open(os.path.join(sample_path, 'risk.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
-    flatt_witsml = ku.to_flat_dict(obj.risk[0])
+    flatt_witsml = ku.to_flat_dict(obj.risk[0], True)
+    print(flatt_witsml)
 
-    assert 0
+    assert flatt_witsml['mitigation[0]'] == 'Call the boss'
+    assert flatt_witsml['mitigation[1]'] == 'Run for cover'
