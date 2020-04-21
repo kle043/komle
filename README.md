@@ -35,7 +35,7 @@ print([l.name for l in logs.log])
 
 # Convert logdata to a dict
 log = logs.log[0]
-data_dict = ku.logdata_frame(log)
+data_dict = ku.logdata_dict(log)
 
 # Create a dataframe, if you have installed pandas
 df = df.DataFrame(data_dict)

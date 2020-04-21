@@ -20,7 +20,7 @@ def pretty_save(element, file_path:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
-def logdata_frame(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
+def logdata_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
     '''Convert logData from a witsml log to a dict frame
 
     This is a dict where each mnemonic is the key to a list of data values.
@@ -107,7 +107,7 @@ def obj_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', s
 
     return flatten_witsml
 
-def plural_frame(plural_obj: pyxb.binding.content._PluralBinding, 
+def plural_dict(plural_obj: pyxb.binding.content._PluralBinding, 
                  include_attr: bool=False, fill_missing: bool=True,
                  delimiter: str='.', start_idx: int=0) -> Dict[str, List['witsml.datatype']]:
     '''Convert a plural witsml obj into a dict frame
