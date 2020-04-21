@@ -20,8 +20,10 @@ def pretty_save(element, file_path:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
-def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
-    '''Convert logData from a witsml log to a dict
+def logdata_frame(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
+    '''Convert logData from a witsml log to a dict frame
+
+    This is a dict where each mnemonic is the key to a list of data values.
 
     Args:
         log(witsml.obj_log): The log to extract logData from
@@ -50,11 +52,11 @@ def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, L
     
     return {mnem:values for mnem, _, values in data_list}
 
-def to_flat_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', start_idx: int=0) -> Dict[str, Union['witsml.datatype']]:
+def obj_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', start_idx: int=0) -> Dict[str, 'witsml.datatype']:
     '''Flatten a witsml object into a flat dict
 
     Args:
-        obj(Any): A witsml object for example obj_trajectory, obj_mudLog etc
+        obj(witsml.obj_...): A singular witsml object for example obj_trajectory, obj_mudLog etc
         include_attr(bool):Also take attributes
         delimiter(str): Deplimiter for nested elements, default . as in python
         start_idx(int): Start index for items in list, default 0
@@ -105,3 +107,25 @@ def to_flat_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.
 
     return flatten_witsml
 
+def plural_frame(plural_obj: pyxb.binding.content._PluralBinding, 
+                 include_attr: bool=False, fill_missing: bool=True,
+                 delimiter: str='.', start_idx: int=0) -> Dict[str, List['witsml.datatype']]:
+    '''Convert a plural witsml obj into a dict frame
+
+    This is a dict where each leaf node path is the key to a list of data values.
+
+    Args:
+        plural_obj(pyxb.binding.content._PluralBinding): A witsml plural object for example,
+                                                         trajectoryStation in trajectory, geologyInterval in mudLog,
+                                                         mudLog in mudLogs etc
+        include_attr(bool):Also take attributes
+        fill_missing(bool): If True set missing data to None, else ignore
+        delimiter(str): Deplimiter for nested elements, default . as in python
+        start_idx(int): Start index for items in list, default 0
+
+    Returns:
+        frame_dict(dict): A flatten dict representation of the witsml obj, 
+                          where values are lists with witsml datatype items
+    '''
+
+    pass

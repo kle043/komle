@@ -14,26 +14,26 @@ def test_log_to_dict(test_filename):
     with open(os.path.join(sample_path, test_filename), 'r') as test_file:
         logs = witsml.CreateFromDocument(test_file.read())
     
-    logdata_dict = ku.logdata_to_dict(logs.log[0])
+    logdata_frame = ku.logdata_frame(logs.log[0])
 
     for mnem in logs.log[0].logData[0].mnemonicList.split(','):
-        assert mnem in logdata_dict
+        assert mnem in logdata_frame
     
-    assert len(list(logdata_dict.values())[0]) == len(logs.log[0].logData[0].data)
+    assert len(list(logdata_frame.values())[0]) == len(logs.log[0].logData[0].data)
 
     if logs.log[0].indexType == 'measured depth':
-        assert isinstance(logdata_dict[logs.log[0].indexCurve][0], float)
+        assert isinstance(logdata_frame[logs.log[0].indexCurve][0], float)
     else:
-        assert isinstance(logdata_dict[logs.log[0].indexCurve][0], datetime)
+        assert isinstance(logdata_frame[logs.log[0].indexCurve][0], datetime)
 
 
 
-def test_to_flat_dict_risk():
+def test_obj_dict_risk():
 
     with open(os.path.join(sample_path, 'risk.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
-    flatt_witsml = ku.to_flat_dict(obj.risk[0], True)
+    flatt_witsml = ku.obj_dict(obj.risk[0], True)
 
     assert flatt_witsml['mitigation[0]'] == 'Call the boss'
     assert flatt_witsml['mitigation[1]'] == 'Run for cover'
@@ -41,11 +41,12 @@ def test_to_flat_dict_risk():
     assert flatt_witsml['nameWellbore'] == 'Wellbore Test Bruce'
     assert len(flatt_witsml) == 45
 
-def test_to_flat_dict_mudLog():
+def test_obj_mudLog():
 
     with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
-    flatt_witsml = ku.to_flat_dict(obj.mudLog[0], True)
+    print(type(obj))
+    flatt_witsml = ku.obj_dict(obj.mudLog[0], True)
     assert flatt_witsml['commonData.comments'] == 'MudLog Object'
     assert len(flatt_witsml) == 1244
