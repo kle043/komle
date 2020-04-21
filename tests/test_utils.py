@@ -14,7 +14,7 @@ def test_log_to_dict(test_filename):
     with open(os.path.join(sample_path, test_filename), 'r') as test_file:
         logs = witsml.CreateFromDocument(test_file.read())
     
-    logdata_frame = ku.logdata_frame(logs.log[0])
+    logdata_frame = ku.logdata_dict(logs.log[0])
 
     for mnem in logs.log[0].logData[0].mnemonicList.split(','):
         assert mnem in logdata_frame
@@ -56,7 +56,17 @@ def test_plural_frame_geoIntervall():
     with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
-    geo_frame = ku.plural_frame(obj.mudLog[0].geologyInterval, True)
+    geo_frame = ku.plural_dict(obj.mudLog[0].geologyInterval, True)
+    
+    print(geo_frame)
+    assert len(geo_frame) == 1244
+
+def test_plural_frame_lithology():
+
+    with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
+        obj = witsml.CreateFromDocument(test_file.read())
+    
+    geo_frame = ku.plural_dict(obj.mudLog[0].geologyInterval[1].lithology, True)
     
     print(geo_frame)
     assert len(geo_frame) == 1244
