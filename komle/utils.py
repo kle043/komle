@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Any
 from komle.read_bindings import witsml
 
 LOG_PRIM_TYPES = {'byte': bytes,
@@ -47,4 +47,17 @@ def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, L
                 data_list[i][2].append(None)
     
     return {mnem:values for mnem, _, values in data_list}
+
+def to_flat_dict(obj: Any, delimiter: str='/', idx_start: int=0) -> dict:
+    '''Flatten a witsml object into a flat dict
+
+    Args:
+        obj(Any): A witsml object for example obj_trajectory, obj_mudLog etc
+        delimiter(str): Deplimiter for nested elements, default . as in python
+        idx_start(int): Start index for items in list, default 0
+
+    Returns:
+        flat_dict(dict): A flatten dict representation of the witsml obj
+    '''
+    return {}
 
