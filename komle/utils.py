@@ -1,4 +1,5 @@
 from typing import Dict, List, Any
+import pyxb
 from komle.read_bindings import witsml
 
 LOG_PRIM_TYPES = {'byte': bytes,
@@ -48,16 +49,51 @@ def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, L
     
     return {mnem:values for mnem, _, values in data_list}
 
-def to_flat_dict(obj: Any, delimiter: str='/', idx_start: int=0) -> dict:
+def to_flat_dict(obj: Any, include_attr: bool=False, delimiter: str='/', start_idx: int=0) -> dict:
     '''Flatten a witsml object into a flat dict
 
     Args:
         obj(Any): A witsml object for example obj_trajectory, obj_mudLog etc
+        include_attr(bool):Also take attributes
         delimiter(str): Deplimiter for nested elements, default . as in python
-        idx_start(int): Start index for items in list, default 0
+        start_idx(int): Start index for items in list, default 0
 
     Returns:
         flat_dict(dict): A flatten dict representation of the witsml obj
     '''
-    return {}
+
+    obj_list = [('', obj)]
+
+    flatten_witsml = {}
+
+    while obj_list:
+        witsml.obj_bhaRun
+        base_name, obj = obj_list.pop()
+
+        if isinstance(obj, pyxb.binding.content._PluralBinding):
+            for i, item in enumerate(obj):
+                obj_list.append((f'{base_name}[{start_idx}]', item))
+        
+        if obj._ContentTypeTag in (obj._CT_EMPTY, obj._CT_SIMPLE):
+
+            for cont in obj.orderedContent():
+
+                if cont.elementDeclaration is not None:
+
+                    next_path = delimiter.join(filter(None, [base_name, cont.elementDeclaration.id()]))
+                    next_obj = obj._ElementMap[cont.elementDeclaration.name()].value(obj)
+                    obj_list.append((next_path, next_obj))
+        
+        else:
+            value = obj
+            if obj._CT_SIMPLE == obj._ContentTypeTag:
+                value = value.value()
+    
+            flatten_witsml[base_name] = value
+
+        if include_attr:
+            for key, value in obj._AttributeMap.items():
+                print(key, value)
+
+    return flatten_witsml
 
