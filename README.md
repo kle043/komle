@@ -1,6 +1,14 @@
 # komle
 
-komle, a python library for [WITSML v1.4.1.1](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/index_witsml_schema.html), uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the generated read schemas. It also comes with a Soap client to request data from a witsml server, according to the [webservice description](http://w3.energistics.org/schema/witsml_v1.4.0_api/WMLS.WSDL). There is also an experimental unit converter based on [witsmlUnitDict](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/ancillary/witsmlUnitDict.xml)
+komle, a python library for [WITSML v1.4.1.1](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/index_witsml_schema.html), uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the generated read schemas.
+
+Some of the features are:
+
+* Converting witsml to a dict for use in a pandas dataframe or json, for example
+* Unit converter based on [witsmlUnitDict](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/ancillary/witsmlUnitDict.xml)
+* Soap client to request data from a witsml server, according to the [webservice description](http://w3.energistics.org/schema/witsml_v1.4.0_api/WMLS.WSDL)
+
+
 
 ## Install
 
@@ -35,10 +43,14 @@ print([l.name for l in logs.log])
 
 # Convert logdata to a dict
 log = logs.log[0]
+
 data_dict = ku.logdata_dict(log)
 
 # Create a dataframe, if you have installed pandas
-df = df.DataFrame(data_dict)
+df_data = pd.DataFrame(data_dict)
+
+# Do the same for the plural logCurveInfo element
+df_curve = pd.DataFrame(ku.plural_dict(log.logCurveInfo))
 ```
 
 `witsml.CreateFromDocument` works on any witsml object, like trajectorys, mudLogs, tubulars etc, and returns a python representation according to 
