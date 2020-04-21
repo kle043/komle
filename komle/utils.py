@@ -128,4 +128,38 @@ def plural_frame(plural_obj: pyxb.binding.content._PluralBinding,
                           where values are lists with witsml datatype items
     '''
 
-    pass
+    frame_list = []
+    existing_keys = set()
+    for obj in plural_obj:
+
+        flatten_witsml = obj_dict(obj, include_attr, delimiter, start_idx)
+        frame_list.append(flatten_witsml)
+        existing_keys.update(list(flatten_witsml.keys()))
+
+    
+    if fill_missing:
+            
+        frame_dict = {key:len(plural_obj)*[None] for key in existing_keys}
+
+        for idx, fw in enumerate(frame_list):
+            for key in fw:
+                if key in frame_dict:
+                    frame_dict[key][idx] = fw[key]
+
+        return frame_dict
+
+    else:
+    
+        frame_dict = {key:[] for key in existing_keys}
+
+        for fw in frame_list:
+            for key in fw:
+                frame_dict[key].append(fw[key])
+        
+        return frame_dict
+
+
+        
+
+
+
