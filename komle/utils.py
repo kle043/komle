@@ -1,4 +1,5 @@
-from typing import Dict, List, Any
+from typing import Dict, List, Union
+from collections import OrderedDict
 import pyxb
 from komle.read_bindings import witsml
 
@@ -19,7 +20,7 @@ def pretty_save(element, file_path:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
-def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[witsml.LogDataType]]:
+def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
     '''Convert logData from a witsml log to a dict
 
     Args:
@@ -49,7 +50,7 @@ def logdata_to_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, L
     
     return {mnem:values for mnem, _, values in data_list}
 
-def to_flat_dict(obj: Any, include_attr: bool=False, delimiter: str='.', start_idx: int=0) -> dict:
+def to_flat_dict(obj: 'witsml.obj_', include_attr: bool=False, delimiter: str='.', start_idx: int=0) -> Dict[str, Union['witsml.datatype']]:
     '''Flatten a witsml object into a flat dict
 
     Args:
@@ -59,12 +60,13 @@ def to_flat_dict(obj: Any, include_attr: bool=False, delimiter: str='.', start_i
         start_idx(int): Start index for items in list, default 0
 
     Returns:
-        flat_dict(dict): A flatten dict representation of the witsml obj
+        flat_dict(dict): A flatten dict representation of the witsml obj, 
+                         where values are witsml datatypes
     '''
 
     obj_list = [('', obj)]
 
-    flatten_witsml = {}
+    flatten_witsml = OrderedDict()
 
     while obj_list:
         witsml.obj_bhaRun
