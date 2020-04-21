@@ -27,7 +27,7 @@ pip3 install -U .
 ``` bash
 from komle.read_bindings import witsml
 from komle import utils as ku
-import pandas as pd # Not part of komle requirements
+import pandas as pd # Not part of komle setup
 
 with open('log.xml', 'r') as log_file:
     # logs is a regular python object according to the witsml schema
