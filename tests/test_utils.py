@@ -41,7 +41,7 @@ def test_obj_dict_risk():
     assert flatt_witsml['nameWellbore'] == 'Wellbore Test Bruce'
     assert len(flatt_witsml) == 45
 
-def test_obj_mudLog():
+def test_obj_dict_mudLog():
 
     with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
@@ -50,3 +50,13 @@ def test_obj_mudLog():
     flatt_witsml = ku.obj_dict(obj.mudLog[0], True)
     assert flatt_witsml['commonData.comments'] == 'MudLog Object'
     assert len(flatt_witsml) == 1244
+
+def test_plural_frame_geoIntervall():
+
+    with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
+        obj = witsml.CreateFromDocument(test_file.read())
+    
+    geo_frame = ku.plural_frame(obj.mudLog[0].geologyInterval, True)
+    
+    print(geo_frame)
+    assert len(geo_frame) == 1244
