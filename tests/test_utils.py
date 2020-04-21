@@ -51,22 +51,29 @@ def test_obj_dict_mudLog():
     assert flatt_witsml['commonData.comments'] == 'MudLog Object'
     assert len(flatt_witsml) == 1244
 
-def test_plural_frame_geoIntervall():
+def test_plural_dict_geoIntervall():
 
     with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
     geo_frame = ku.plural_dict(obj.mudLog[0].geologyInterval, True)
     
-    print(geo_frame)
-    assert len(geo_frame) == 1244
+    assert geo_frame['mdTop'][0:6] == [1860.0, 1870.0, 1880.0, 1890.0, 1890.0, 1900.0]
+    assert len(geo_frame) == 28
 
-def test_plural_frame_lithology():
+def test_plural_dict_lithology():
 
     with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as test_file:
         obj = witsml.CreateFromDocument(test_file.read())
     
-    geo_frame = ku.plural_dict(obj.mudLog[0].geologyInterval[1].lithology, True)
+    lit_frame = ku.plural_dict(obj.mudLog[0].geologyInterval[1].lithology, True)
+    lit_frame_no_attr = ku.plural_dict(obj.mudLog[0].geologyInterval[1].lithology, False)
     
-    print(geo_frame)
-    assert len(geo_frame) == 1244
+    for lit in [lit_frame, lit_frame_no_attr]:
+        assert lit['lithPc'] == [70.0, 30.0]
+        assert lit['codeLith'] == ['300', '405']
+        assert lit['description'] == ['Clay Clay-shale [Symbol not found, used by default]', 'Sand Fine sandstone']
+
+    assert lit_frame['uid'] == ["6e106c6c-07f1-4288-b1d3-f3238606c1a8-Lith0", "6e106c6c-07f1-4288-b1d3-f3238606c1a8-Lith1"]
+    assert len(lit_frame) == 6
+    assert len(lit_frame_no_attr) == 4
