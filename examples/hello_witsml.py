@@ -12,6 +12,8 @@ from komle.read_bindings import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
 from komle import utils as ku
+import pandas as pd # Not included in komle setup.py
+
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
 #%% Open a mud log and unmarshall it
@@ -35,6 +37,17 @@ for geo_int in mud_log.geologyInterval:
     print(f'{geo_int.mdBottom.value()} - {geo_int.mdTop.value()}  {geo_int.mdTop.uom}')
     for lit in geo_int.lithology:
         print(f'Lit: {lit.lithPc.value()} {lit.lithPc.uom}')
+
+# %% Construct a dictonary out of the plural geologyIntervall
+# This can be feed into a data frame
+
+geo_dict = ku.plural_dict(mud_log.geologyInterval)
+pd.DataFrame(geo_dict)
+
+#%%
+# Or just use lithology for intervall 1, excluding attributes
+lit_dict = ku.plural_dict(mud_log.geologyInterval[1].lithology, include_attr=False)
+pd.DataFrame(lit_dict)
 
 #%% Lookup a witsml unit annotation
 
@@ -79,9 +92,14 @@ print(log.logData[0]._element().documentation())
 
 # %% Build a dict of data points from logData using ku
 
-data_dict = ku.logdata_to_dict(log)
+data_dict = ku.logdata_dict(log)
+pd.DataFrame(data_dict)
 
-# %%
+# %% Get the corresponding logCurveInfo as dict
+
+curve_dict = ku.plural_dict(log.logCurveInfo)
+pd.DataFrame(curve_dict)
+
 # %% Print some data points you can also push data_dict into a dataframe
 
 # The default delimiter is ,
@@ -92,10 +110,6 @@ print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
-
-#%% If you have pandas installed
-#import pandas as pd
-#pd.DataFrame(data_dict)
 
 # %% Soap client using wsdl
 
