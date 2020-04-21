@@ -40,3 +40,6 @@ def test_to_flat_dict(test_filename, attr):
 
     assert flatt_witsml['mitigation[0]'] == 'Call the boss'
     assert flatt_witsml['mitigation[1]'] == 'Run for cover'
+    assert flatt_witsml['uidWellbore'] == 'OC-bf-wb1'
+    assert flatt_witsml['nameWellbore'] == 'Wellbore Test Bruce'
+    assert len(flatt_witsml) == 45
