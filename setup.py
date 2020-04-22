@@ -4,7 +4,7 @@ setup(
       name='komle',
       version='0.1',
       description='A python library to help with WITSML v1.4.1.1',
-      url='https://github.com/knle88/komle',
+      url='https://github.com/kle043/komle',
       packages=find_packages(exclude=('tests',)),
       author='kle043',
       include_package_data=True,
