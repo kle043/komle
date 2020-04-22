@@ -138,12 +138,12 @@ def plural_dict(plural_obj: pyxb.binding.content._PluralBinding,
     '''
 
     frame_list = []
-    existing_keys = set()
+    existing_keys = []
     for obj in plural_obj:
 
         flatten_witsml = obj_dict(obj, include_attr, prefix_attr, delimiter, start_idx)
         frame_list.append(flatten_witsml)
-        existing_keys.update(list(flatten_witsml.keys()))
+        existing_keys.extend([k for k in flatten_witsml if k not in existing_keys])
 
     
     if fill_missing:
