@@ -41,7 +41,7 @@ logs.append(witsml.obj_log(uidWell='4',
 # %% Try to write to file
 # This will give an error due to the missing nameWellbore
 
-with open('out-log.xml', 'w') as log_file:
+with open('out_log.xml', 'w') as log_file:
     log_file.write(logs.toDOM().toprettyxml())
 
 # %% Set the missing value and try again
@@ -71,10 +71,42 @@ traj.mdMn = 0
 traj.mdMn.uom = 'm'
 
 # %% uom does not accept invalid units
+
 traj.mdMx = 1000
 traj.mdMx.uom = 'tt'
 
 # %%
+
 traj.mdMx.uom = 'm'
+traj.serviceCompany = 'Tigergutt'
+
+# %% Create a trajectoryStation
+
+traj_station = witsml.cs_trajectoryStation(uid='myuid')
+
+
+# %%
+
+traj_station.typeTrajStation = 'unknown'
+traj_station.md, traj_station.md.uom = 40, 'm'
+#%%
+
+traj_station.tvd, traj_station.tvd.uom = 40.1, 'm'
+traj_station.incl, traj_station.incl.uom = 0.2, 'dega'
+traj_station.azi, traj_station.azi.uom = 0.1, 'dega'
+traj_station.dispNs, traj_station.dispNs.uom = 28.0, 'm'
+traj_station.dispEw, traj_station.dispEw.uom = 2.2, 'm'
+traj_station.vertSect, traj_station.vertSect.uom = 0, 'm'
+traj_station.dls, traj_station.dls.uom = 0, 'dega/m'
+
+# %% Add the trajectoryStation and trajectory
+
+traj.trajectoryStation.append(traj_station)
+trajs.append(traj)
+
+
+# %% Write to file
+with open('out_trajectory.xml', 'w') as traj_file:
+    traj_file.write(trajs.toDOM().toprettyxml())
 
 # %%
