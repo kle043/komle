@@ -76,7 +76,7 @@ def obj_dict(obj: 'witsml.obj_',
     flatten_witsml = OrderedDict()
 
     while obj_list:
-        witsml.obj_bhaRun
+
         base_name, obj = obj_list.pop()
 
         if isinstance(obj, pyxb.binding.content._PluralBinding):
