@@ -1,0 +1,4 @@
+suds-py3==1.4.0.0
+pandas==1.0.1
+PyXB==1.2.6
+pytest>=3.0
