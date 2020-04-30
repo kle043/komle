@@ -1,8 +1,24 @@
-import pyxb
-from komle.write_bindings import witsml
+import pytest
+from pyxb.namespace import Namespace, utility
 
+@pytest.fixture(scope="session", autouse=True)
+def setup():
+    # If running all the tests at once, we can't have two equal namespaces
+    # So reset in case read_bindings is loaded and load the write_binding
+    for name in utility.AvailableNamespaces():
+        getattr(super(Namespace, name), '_reset', lambda *args, **kw: None)()
+        name._Namespace__initialNamespaceContext =  None
+
+    yield
+    # Reset namespace after test is finished
+    for name in utility.AvailableNamespaces():
+        getattr(super(Namespace, name), '_reset', lambda *args, **kw: None)()
+        name._Namespace__initialNamespaceContext =  None
+
+
+    
 def test_logs():
-
+    from komle.write_bindings import witsml
     logs = witsml.logs(version=witsml.__version__)
     log = witsml.obj_log(uidWell='1', 
                          uidWellbore='2', 
@@ -16,6 +32,7 @@ def test_logs():
     logs.toDOM()
 
 def test_trajecorys():
+    from komle.write_bindings import witsml
     trajs = witsml.trajectorys(version=witsml.__version__)
 
     traj = witsml.obj_trajectory(uidWell='4', 
