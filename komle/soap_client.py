@@ -1,7 +1,15 @@
 import os
+import sys
 from suds.client import Client
-from komle.read_bindings import witsml
 from typing import Union
+
+if 'komle.write_bindings' in sys.modules:
+    # Witsml uses the same namespace for each schema
+    # So for now check what binding is in use
+    from komle.write_bindings import witsml
+else:
+    # Default to import read_bindings
+    from komle.read_bindings import witsml
 
 def simple_client(service_url: str, username: str, password: str, agent_name: str='komle') -> Client:
     '''Create a simple soap client using Suds, 

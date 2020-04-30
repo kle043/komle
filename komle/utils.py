@@ -1,7 +1,15 @@
+import sys
 from typing import Dict, List, Union
 from collections import OrderedDict
 import pyxb
-from komle.read_bindings import witsml
+
+if 'komle.write_bindings' in sys.modules:
+    # Witsml uses the same namespace for each schema
+    # So for now check what binding is in use
+    from komle.write_bindings import witsml
+else:
+    # Default to import read_bindings
+    from komle.read_bindings import witsml
 
 LOG_PRIM_TYPES = {'byte': bytes,
                   'date time': witsml.timestamp,

@@ -7,6 +7,7 @@ setup(
       url='https://github.com/kle043/komle',
       packages=find_packages(exclude=('tests',)),
       author='kle043',
+      author_email='pale.dorg@gmail.com',
       include_package_data=True,
       package_data={
                     'komle': ['WMLS.WSDL', 'witsmlUnitDict.xml'],
