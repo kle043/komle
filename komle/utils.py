@@ -3,16 +3,20 @@ from typing import Dict, List, Union
 from collections import OrderedDict
 import pyxb
 
-if 'komle.bindings.v1411.write' in sys.modules:
-    # Witsml uses the same namespace for each schema
-    # So for now check what binding is in use
-    from komle.bindings.v1411.write import witsml
+
+
+if 'komle.bindings.v20' in sys.modules:
+
+    from komle.bindings.v20._eml import TimeStamp
+    timestamp = TimeStamp
 else:
     # Default to import read_bindings
-    from komle.bindings.v1411.read import witsml
+    from komle.bindings.v1411.read.witsml import timestamp
+    timestamp = timestamp
+
 
 LOG_PRIM_TYPES = {'byte': bytes,
-                  'date time': witsml.timestamp,
+                  'date time': timestamp,
                   'double': float,
                   'float': float,
                   'int': int,
@@ -28,7 +32,7 @@ def pretty_save(element, file_path:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
-def logdata_dict(log: witsml.obj_log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
+def logdata_dict(log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
     '''Convert logData from a witsml log to a dict frame
 
     This is a dict where each mnemonic is the key to a list of data values.
