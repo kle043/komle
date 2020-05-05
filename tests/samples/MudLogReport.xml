@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MudLogReport xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+              xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+              xmlns:gco="http://www.isotc211.org/2005/gco"
+              xmlns:gmd="http://www.isotc211.org/2005/gmd"
+              xmlns:gsr="http://www.isotc211.org/2005/gsr"
+              xmlns:gts="http://www.isotc211.org/2005/gts"
+              xmlns:gml="http://www.opengis.net/gml/3.2"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/MudLogReport.xsd"
+              schemaVersion="2.0"
+              uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1411_input">
+      <eml:Identifier>h45a</eml:Identifier>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>m1001</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:18:22.17-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+   </eml:Citation>
+   <MudLogCompany>Mud log company</MudLogCompany>
+   <MudLogEngineers>Mud log Engineers</MudLogEngineers>
+   <ReportMdInterval datum="unknown">
+      <eml:MdTop uom="ft">8920.19</eml:MdTop>
+      <eml:MdBase uom="ft">9420</eml:MdBase>
+   </ReportMdInterval>
+   <GrowingStatus>active</GrowingStatus>
+   <Wellbore>
+      <eml:ContentType>obj_wellbore</eml:ContentType>
+      <eml:Title>A-42</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+   </Wellbore>
+   <MudlogIntervals uid="00001">
+      <MdInterval datum="unknown">
+         <eml:MdTop uom="ft">8990</eml:MdTop>
+         <eml:MdBase uom="ft">9420</eml:MdBase>
+      </MdInterval>
+      <CuttingsGeologyInterval>
+         <eml:ContentType>GeologyInterval</eml:ContentType>
+         <eml:Title>GeologyInterval</eml:Title>
+         <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      </CuttingsGeologyInterval>
+      <ShowEvaluationInterval>
+         <eml:ContentType>ShowEvaluationInterval</eml:ContentType>
+         <eml:Title>ShowEvaluationInterval</eml:Title>
+         <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      </ShowEvaluationInterval>
+      <Chromatograph>
+         <ETimChromCycle uom="s">30</ETimChromCycle>
+         <MethAv uom="ppm">600</MethAv>
+         <MethMn uom="ppm">500</MethMn>
+         <MethMx uom="ppm">700</MethMx>
+         <EthAv uom="ppm">120</EthAv>
+         <EthMn uom="ppm">100</EthMn>
+         <EthMx uom="ppm">130</EthMx>
+         <PropAv uom="ppm">45</PropAv>
+         <PropMn uom="ppm">40</PropMn>
+         <PropMx uom="ppm">70</PropMx>
+         <IbutAv uom="ppm">10</IbutAv>
+         <IbutMn uom="ppm">5</IbutMn>
+         <IbutMx uom="ppm">15</IbutMx>
+         <NbutAv uom="ppm">10</NbutAv>
+         <NbutMn uom="ppm">10</NbutMn>
+         <NbutMx uom="ppm">10</NbutMx>
+         <IpentAv uom="ppm">1</IpentAv>
+         <IpentMn uom="ppm">1</IpentMn>
+         <IpentMx uom="ppm">1</IpentMx>
+         <NpentAv uom="ppm">1</NpentAv>
+         <NpentMn uom="ppm">.099</NpentMn>
+         <NpentMx uom="ppm">.099</NpentMx>
+         <EpentAv uom="ppm">.099</EpentAv>
+         <EpentMn uom="ppm">.099</EpentMn>
+         <EpentMx uom="ppm">.099</EpentMx>
+         <IhexAv uom="ppm">.099</IhexAv>
+         <IhexMn uom="ppm">.099</IhexMn>
+         <IhexMx uom="ppm">.099</IhexMx>
+         <NhexAv uom="ppm">.099</NhexAv>
+         <NhexMn uom="ppm">.099</NhexMn>
+         <NhexMx uom="ppm">.099</NhexMx>
+         <Co2Av uom="ppm">.099</Co2Av>
+         <Co2Mn uom="ppm">.099</Co2Mn>
+         <Co2Mx uom="ppm">.099</Co2Mx>
+         <H2sAv uom="ppm">0</H2sAv>
+         <H2sMn uom="ppm">0</H2sMn>
+         <H2sMx uom="ppm">0</H2sMx>
+         <Acetylene uom="ppm">.099</Acetylene>
+      </Chromatograph>
+      <DrillingParameters>
+         <Rop>
+            <Average uom="ft/h">12</Average>
+         </Rop>
+         <AverageWeightOnBit>
+            <Average uom="lbf">6</Average>
+         </AverageWeightOnBit>
+         <AverageTorque>
+            <Average uom="lbf.ft">600</Average>
+         </AverageTorque>
+         <AverageTorqueCurrent/>
+         <AverageTurnRate>
+            <Average uom="rpm">120</Average>
+         </AverageTurnRate>
+         <AverageMudDensity>
+            <Average uom="lbm/ft3">10.5</Average>
+         </AverageMudDensity>
+         <AverageEcdAtTd>
+            <Average uom="lbm/ft3">10.6</Average>
+         </AverageEcdAtTd>
+         <AverageDrillingCoefficient>
+            <Average uom="%">0.95</Average>
+         </AverageDrillingCoefficient>
+      </DrillingParameters>
+      <MudGas>
+         <GasInMud>
+            <Average uom="%">1.24</Average>
+            <Channel>
+               <eml:ContentType>MudGas channel</eml:ContentType>
+               <eml:Title>MudGas channel</eml:Title>
+               <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+            </Channel>
+         </GasInMud>
+         <GasPeak>
+            <PeakType>connection gas</PeakType>
+            <Channel>
+               <eml:ContentType>GasinMudChannel</eml:ContentType>
+               <eml:Title>GasinMudChannel</eml:Title>
+               <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+            </Channel>
+         </GasPeak>
+      </MudGas>
+   </MudlogIntervals>
+   <Parameter xsi:type="MudLogForceParameter" uid="00001">
+      <MdInterval datum="unknown">
+         <eml:MdTop uom="ft">8920.19</eml:MdTop>
+         <eml:MdBase uom="ft">8920.19</eml:MdBase>
+      </MdInterval>
+      <Citation>
+         <eml:Title>Mudlog parameter</eml:Title>
+         <eml:Originator>1411_input</eml:Originator>
+         <eml:Creation>2011-09-15T00:00:00Z</eml:Creation>
+         <eml:Format>Mapforce</eml:Format>
+      </Citation>
+      <Comments>2011/09/15</Comments>
+      <Value uom="klbf">0</Value>
+      <ForceParameterKind>overpull on connection</ForceParameterKind>
+   </Parameter>
+   <Parameter xsi:type="MudLogForceParameter" uid="00002">
+      <MdInterval datum="unknown">
+         <eml:MdTop uom="ft">9010</eml:MdTop>
+         <eml:MdBase uom="ft">9070</eml:MdBase>
+      </MdInterval>
+      <Citation>
+         <eml:Title>Mudlog parameter</eml:Title>
+         <eml:Originator>1411_input</eml:Originator>
+         <eml:Creation>2011-09-15T03:14:27.166Z</eml:Creation>
+         <eml:Format>Mapforce</eml:Format>
+      </Citation>
+      <Comments>Core #3. Core 8 1/2 inches from 9010 MD to 9070 MD, recovered 98%</Comments>
+      <Value uom="klbf">0</Value>
+      <ForceParameterKind>overpull on connection</ForceParameterKind>
+   </Parameter>
+   <Parameter xsi:type="MudLogForceParameter" uid="00003">
+      <MdInterval datum="unknown">
+         <eml:MdTop uom="ft">9195.42</eml:MdTop>
+         <eml:MdBase uom="ft">9195.42</eml:MdBase>
+      </MdInterval>
+      <Citation>
+         <eml:Title>Mudlog parameter</eml:Title>
+         <eml:Originator>1411_input</eml:Originator>
+         <eml:Creation>2011-09-15T04:37:51.819Z</eml:Creation>
+         <eml:Format>Mapforce</eml:Format>
+      </Citation>
+      <Comments>50 Klb o/p on connection</Comments>
+      <Value uom="klbf">50</Value>
+      <ForceParameterKind>overpull on connection</ForceParameterKind>
+   </Parameter>
+</MudLogReport>
