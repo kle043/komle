@@ -27,7 +27,7 @@ if pyxb.__version__ != _PyXBVersion:
 _module_typeBindings = pyxb.utils.utility.Object()
 
 # Import bindings for namespaces imported into schema
-import komle.read_bindings._nsgroup as _ImportedBinding_read_bindings__nsgroup
+import komle.bindings.v1411.read._nsgroup as _ImportedBinding_read_bindings__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding
 Namespace = pyxb.namespace.NamespaceForURI('http://www.isotc211.org/2005/gts', create_if_missing=True)
