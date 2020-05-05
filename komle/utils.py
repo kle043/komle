@@ -32,7 +32,7 @@ def pretty_save(element, file_path:str):
     with open(file_path, 'w') as xml_file:
         xml_file.write(element.toDOM().toprettyxml())
 
-def logdata_dict(log, fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
+def logdata_dict(log: 'witsml.obj_log', fill_missing: bool=True) -> Dict[str, List[Union[str, int, float, bytes]]]:
     '''Convert logData from a witsml log to a dict frame
 
     This is a dict where each mnemonic is the key to a list of data values.
@@ -64,7 +64,7 @@ def logdata_dict(log, fill_missing: bool=True) -> Dict[str, List[Union[str, int,
     
     return {mnem:values for mnem, _, values in data_list}
 
-def obj_dict(obj: 'witsml.obj_', 
+def obj_dict(obj: 'witsml', 
              include_attr: bool=False,
              prefix_attr: str='',
              delimiter: str='.', 
