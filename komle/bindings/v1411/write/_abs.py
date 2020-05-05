@@ -1,7 +1,7 @@
-# komle/write_bindings/_abs.py
+# komle/bindings/v1411/write/_abs.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:8303e32165e8ecb1e71ee1daf2c80a31c9900992
-# Generated 2020-04-28 14:15:45.263561 by PyXB version 1.2.6 using Python 3.7.5.final.0
+# Generated 2020-05-05 12:37:19.642596 by PyXB version 1.2.6 using Python 3.8.2.final.0
 # Namespace http://www.energistics.org/schemas/abstract [xmlns:abs]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:12a7727e-8949-11ea-9269-e1ea09be6e55')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:23c8451a-8ebc-11ea-ae29-f507f064c4f5')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'

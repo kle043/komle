@@ -1,7 +1,7 @@
-# komle/bindings_v20/_nsgroup.py
+# komle/bindings/v20/_nsgroup.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NGM:028a0d50d977330081c6c39e8cc2382e79fdb102
-# Generated 2020-05-05 10:10:24.790824 by PyXB version 1.2.6 using Python 3.8.2.final.0
+# Generated 2020-05-05 12:51:53.526459 by PyXB version 1.2.6 using Python 3.8.2.final.0
 # Group contents:
 # Namespace http://www.isotc211.org/2005/gco [xmlns:gco]
 # Namespace http://www.isotc211.org/2005/gmd [xmlns:gmd]
@@ -16,7 +16,7 @@ import pyxb.binding
 import pyxb.utils.utility
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:be6ea326-8ea7-11ea-ae29-f507f064c4f5')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:52e853d8-8ebe-11ea-ae29-f507f064c4f5')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'

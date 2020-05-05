@@ -1,7 +1,7 @@
-# komle/bindings_v20/_eml.py
+# komle/bindings/v20/_eml.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:1e9617d03415d86adf273fcb31eaedcc7bb83b1b
-# Generated 2020-05-05 10:10:24.791352 by PyXB version 1.2.6 using Python 3.8.2.final.0
+# Generated 2020-05-05 12:51:53.526637 by PyXB version 1.2.6 using Python 3.8.2.final.0
 # Namespace http://www.energistics.org/energyml/data/commonv2 [xmlns:eml]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:be6ea326-8ea7-11ea-ae29-f507f064c4f5')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:52e853d8-8ebe-11ea-ae29-f507f064c4f5')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'

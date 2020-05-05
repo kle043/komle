@@ -1,7 +1,7 @@
-# komle/write_bindings/_xlink.py
+# komle/bindings/v1411/write/_xlink.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:b43cd366527ddb6a0e58594876e07421e0148f30
-# Generated 2020-04-28 14:15:45.262028 by PyXB version 1.2.6 using Python 3.7.5.final.0
+# Generated 2020-05-05 12:37:19.642802 by PyXB version 1.2.6 using Python 3.8.2.final.0
 # Namespace http://www.w3.org/1999/xlink [xmlns:xlink]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:12a7727e-8949-11ea-9269-e1ea09be6e55')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:23c8451a-8ebc-11ea-ae29-f507f064c4f5')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'

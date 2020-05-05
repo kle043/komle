@@ -1,7 +1,7 @@
-# komle/write_bindings/_gco.py
+# komle/bindings/v1411/write/_gco.py
 # -*- coding: utf-8 -*-
 # PyXB bindings for NM:2bd68004d120daf987d63b2efda66ae3eda8eaea
-# Generated 2020-04-28 14:15:45.262323 by PyXB version 1.2.6 using Python 3.7.5.final.0
+# Generated 2020-05-05 12:37:19.643084 by PyXB version 1.2.6 using Python 3.8.2.final.0
 # Namespace http://www.isotc211.org/2005/gco [xmlns:gco]
 
 from __future__ import unicode_literals
@@ -14,7 +14,7 @@ import pyxb.utils.domutils
 import sys
 import pyxb.utils.six as _six
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:12a7727e-8949-11ea-9269-e1ea09be6e55')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:23c8451a-8ebc-11ea-ae29-f507f064c4f5')
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -27,7 +27,7 @@ if pyxb.__version__ != _PyXBVersion:
 _module_typeBindings = pyxb.utils.utility.Object()
 
 # Import bindings for namespaces imported into schema
-import komle.bindings.v1411.write._nsgroup as _ImportedBinding_write_bindings__nsgroup
+import komle.bindings.v1411.write._nsgroup as _ImportedBinding_bindings_v1411_write__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding
 Namespace = pyxb.namespace.NamespaceForURI('http://www.isotc211.org/2005/gco', create_if_missing=True)
