@@ -6,10 +6,10 @@ import pyxb
 if 'komle.write_bindings' in sys.modules:
     # Witsml uses the same namespace for each schema
     # So for now check what binding is in use
-    from komle.write_bindings import witsml
+    from komle.bindings.v1411.write import witsml
 else:
     # Default to import read_bindings
-    from komle.read_bindings import witsml
+    from komle.bindings.v1411.read import witsml
 
 LOG_PRIM_TYPES = {'byte': bytes,
                   'date time': witsml.timestamp,

@@ -75,4 +75,4 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.read_bindings._nsgroup import SC_CRS_PropertyType # {http://www.isotc211.org/2005/gsr}SC_CRS_PropertyType
+from komle.bindings.v1411.read._nsgroup import SC_CRS_PropertyType # {http://www.isotc211.org/2005/gsr}SC_CRS_PropertyType

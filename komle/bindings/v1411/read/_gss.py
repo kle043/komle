@@ -75,5 +75,5 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.read_bindings._nsgroup import GM_Point_PropertyType # {http://www.isotc211.org/2005/gss}GM_Point_PropertyType
-from komle.read_bindings._nsgroup import GM_Object_PropertyType # {http://www.isotc211.org/2005/gss}GM_Object_PropertyType
+from komle.bindings.v1411.read._nsgroup import GM_Point_PropertyType # {http://www.isotc211.org/2005/gss}GM_Point_PropertyType
+from komle.bindings.v1411.read._nsgroup import GM_Object_PropertyType # {http://www.isotc211.org/2005/gss}GM_Object_PropertyType

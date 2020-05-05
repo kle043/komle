@@ -1,7 +1,7 @@
 import os
 import pytest
 from komle import utils as ku
-from komle.read_bindings import witsml
+from komle.bindings.v1411.read import witsml
 from datetime import datetime
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples')

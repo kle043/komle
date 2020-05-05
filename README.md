@@ -28,7 +28,7 @@ pip3 install -U .
 ## Getting started
 
 ``` bash
-from komle.read_bindings import witsml
+from komle.bindings.v1411.read import witsml
 from komle import utils as ku
 import pandas as pd # Not part of komle setup
 

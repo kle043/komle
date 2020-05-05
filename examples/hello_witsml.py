@@ -8,7 +8,7 @@ or just run it using python3
 #%%
 
 import os
-from komle.read_bindings import witsml
+from komle.bindings.v1411.read import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
 from komle import utils as ku

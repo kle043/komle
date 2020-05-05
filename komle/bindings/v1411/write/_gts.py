@@ -75,6 +75,6 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.write_bindings._nsgroup import TM_PeriodDuration # {http://www.isotc211.org/2005/gts}TM_PeriodDuration
-from komle.write_bindings._nsgroup import TM_Primitive_PropertyType # {http://www.isotc211.org/2005/gts}TM_Primitive_PropertyType
-from komle.write_bindings._nsgroup import TM_PeriodDuration_PropertyType # {http://www.isotc211.org/2005/gts}TM_PeriodDuration_PropertyType
+from komle.bindings.v1411.write._nsgroup import TM_PeriodDuration # {http://www.isotc211.org/2005/gts}TM_PeriodDuration
+from komle.bindings.v1411.write._nsgroup import TM_Primitive_PropertyType # {http://www.isotc211.org/2005/gts}TM_Primitive_PropertyType
+from komle.bindings.v1411.write._nsgroup import TM_PeriodDuration_PropertyType # {http://www.isotc211.org/2005/gts}TM_PeriodDuration_PropertyType
