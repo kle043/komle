@@ -3,7 +3,7 @@ import sys
 from suds.client import Client
 from typing import Union
 
-if 'komle.write_bindings' in sys.modules:
+if 'komle.bindings.v1411.write' in sys.modules:
     # Witsml uses the same namespace for each schema
     # So for now check what binding is in use
     from komle.bindings.v1411.write import witsml
