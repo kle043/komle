@@ -1,7 +1,7 @@
 import pytest
 from pyxb.namespace import Namespace, utility
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="module", autouse=True)
 def setup():
     # If running all the tests at once, we can't have two equal namespaces
     # So reset in case read_bindings is loaded and load the write_binding
