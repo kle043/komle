@@ -1,12 +1,18 @@
 import os
 import pytest
 from komle.bindings.v20 import witsml
+from pyxb.namespace import Namespace, utility
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples')
 
 @pytest.mark.parametrize("test_filename", 
-                        ["Log.xml", 
-                         "MudLogReport.xml"
+                        ["BhaRun.xml",
+                         "Log.xml", 
+                         "MudLogReport.xml",
+                         "Trajectory.xml",
+                         "Tubular.xml",
+                         "Well.xml",
+                         "Wellbore.xml"
                         ])
 def test_unmarshalling(test_filename):
     '''Test unmarshalling energistics well A test files'''

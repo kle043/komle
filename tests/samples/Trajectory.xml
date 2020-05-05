@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Trajectory xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+            xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+            xmlns:gco="http://www.isotc211.org/2005/gco"
+            xmlns:gmd="http://www.isotc211.org/2005/gmd"
+            xmlns:gsr="http://www.isotc211.org/2005/gsr"
+            xmlns:gts="http://www.isotc211.org/2005/gts"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/Trajectory.xsd"
+            schemaVersion="2.0"
+            uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1.4.1.1">
+      <eml:Identifier>pe84e</eml:Identifier>
+      <eml:Description>Identifier is created from the uid of the input scheme</eml:Description>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>Plan #2</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:19:11.884-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+   </eml:Citation>
+   <GrowingStatus>active</GrowingStatus>
+   <DTimTrajStart>2018-01-23T08:19:11.884-06:00</DTimTrajStart>
+   <DTimTrajEnd>2001-11-03T16:30:00Z</DTimTrajEnd>
+   <MdMn uom="ft" datum="unknown">0</MdMn>
+   <MdMx uom="ft" datum="unknown">14089.3</MdMx>
+   <ServiceCompany>Anadrill</ServiceCompany>
+   <MagDeclUsed uom="dega">-4.038</MagDeclUsed>
+   <AziVertSect uom="dega">82.700</AziVertSect>
+   <DispNsVertSectOrig uom="ft">0</DispNsVertSectOrig>
+   <DispEwVertSectOrig uom="ft">0</DispEwVertSectOrig>
+   <Definitive>true</Definitive>
+   <Memory>true</Memory>
+   <FinalTraj>true</FinalTraj>
+   <AziRef>grid north</AziRef>
+   <TrajectoryStation uid="34ht5">
+      <DTimStn>2001-10-21T08:15:00Z</DTimStn>
+      <TypeTrajStation>tie in point</TypeTrajStation>
+      <Md uom="ft" datum="unknown">0</Md>
+      <Tvd uom="ft" datum="unknown">0</Tvd>
+      <Incl uom="dega">0</Incl>
+      <Azi uom="dega">47.3</Azi>
+      <Mtf uom="dega">47.3</Mtf>
+      <Gtf uom="dega">0</Gtf>
+      <DispNs uom="ft">0</DispNs>
+      <DispEw uom="ft">0</DispEw>
+      <VertSect uom="ft">0</VertSect>
+      <Dls uom="dega/ft">0</Dls>
+      <RateTurn uom="dega/ft">0</RateTurn>
+      <RateBuild uom="dega/ft">0</RateBuild>
+      <MdDelta uom="ft">0</MdDelta>
+      <TvdDelta uom="ft">0</TvdDelta>
+      <GravTotalUncert uom="m/s2">0</GravTotalUncert>
+      <DipAngleUncert uom="dega">0</DipAngleUncert>
+      <MagTotalUncert uom="nT">0</MagTotalUncert>
+      <GravAccelCorUsed>false</GravAccelCorUsed>
+      <MagXAxialCorUsed>false</MagXAxialCorUsed>
+      <SagCorUsed>false</SagCorUsed>
+      <MagDrlstrCorUsed>false</MagDrlstrCorUsed>
+      <StatusTrajStation>position</StatusTrajStation>
+      <Valid>
+         <MagTotalFieldCalc uom="nT">51.19</MagTotalFieldCalc>
+         <MagDipAngleCalc uom="dega">41.5</MagDipAngleCalc>
+         <GravTotalFieldCalc uom="ft/s2">0.999</GravTotalFieldCalc>
+      </Valid>
+      <MatrixCov>
+         <VarianceNN uom="ft2">0.005236</VarianceNN>
+         <VarianceNE uom="ft2">0.005236</VarianceNE>
+         <VarianceNVert uom="ft2">2.356194</VarianceNVert>
+         <VarianceEE uom="ft2">0.005236</VarianceEE>
+         <VarianceEVert uom="ft2">0.005236</VarianceEVert>
+         <VarianceVertVert uom="ft2">0.785398</VarianceVertVert>
+         <BiasN uom="ft">0</BiasN>
+         <BiasE uom="ft">0</BiasE>
+         <BiasVert uom="ft">0</BiasVert>
+      </MatrixCov>
+      <Location xsi:type="GeodeticWellLocation" uid="loc-1">
+         <Latitude uom="rad">59.7553</Latitude>
+         <Longitude uom="rad">1.71347417</Longitude>
+         <Crs xsi:type="eml:GeodeticLocalAuthorityCrs">
+            <eml:LocalAuthorityCrsName authority="WGS84">ED50</eml:LocalAuthorityCrsName>
+         </Crs>
+      </Location>
+      <RawData>
+         <GravAxialRaw uom="ft/s2">0.116</GravAxialRaw>
+         <GravTran1Raw uom="ft/s2">-0.168</GravTran1Raw>
+         <GravTran2Raw uom="ft/s2">-1654</GravTran2Raw>
+         <MagAxialRaw uom="nT">22.77</MagAxialRaw>
+         <MagTran1Raw uom="nT">22.5</MagTran1Raw>
+         <MagTran2Raw uom="nT">27.05</MagTran2Raw>
+      </RawData>
+      <CorUsed>
+         <GravAxialAccelCor uom="ft/s2">0.11</GravAxialAccelCor>
+         <GravTran1AccelCor uom="ft/s2">0.14</GravTran1AccelCor>
+         <GravTran2AccelCor uom="ft/s2">0.13</GravTran2AccelCor>
+         <MagAxialDrlstrCor uom="nT">0.17</MagAxialDrlstrCor>
+         <MagTran1DrlstrCor uom="nT">0.16</MagTran1DrlstrCor>
+         <MagTran2DrlstrCor uom="nT">0.24</MagTran2DrlstrCor>
+         <SagIncCor uom="dega">0</SagIncCor>
+         <SagAziCor uom="dega">0</SagAziCor>
+         <StnMagDeclUsed uom="dega">-4.038</StnMagDeclUsed>
+         <DirSensorOffset uom="ft">48.3</DirSensorOffset>
+      </CorUsed>
+   </TrajectoryStation>
+   <Wellbore>
+      <eml:ContentType>wellbore</eml:ContentType>
+      <eml:Title>A-42</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      <eml:UuidAuthority>B-01</eml:UuidAuthority>
+      <eml:VersionString>1411_input</eml:VersionString>
+   </Wellbore>
+</Trajectory>
