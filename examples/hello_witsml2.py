@@ -15,7 +15,7 @@ import pandas as pd # Not included in komle setup.py
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
-#%% Open a mud log and unmarshall it
+#%% Open a Trajectory and unmarshall it
  
 with open(os.path.join(sample_path, 'Trajectory.xml'), 'r') as mud_file:
     traj = witsml.CreateFromDocument(mud_file.read())
@@ -26,10 +26,13 @@ print(traj.DTimTrajStart)
 
 # %% Convert stations to dataframe
 
-geo_dict = ku.plural_dict(traj.TrajectoryStation)
-pd.DataFrame(geo_dict)
+station_dict = ku.plural_dict(traj.TrajectoryStation)
+pd.DataFrame(station_dict)
 
+# %% Trajectory documentation
 
+print(traj.__doc__)
+print(traj.TrajectoryStation[0].__doc__)
 
 #%% Work with log files
 
@@ -39,7 +42,7 @@ with open(os.path.join(sample_path, 'Log.xml'), 'r') as log_file:
 
 #%%
 
-print(logs.ChannelSet[0]._element().documentation())
+print(logs.ChannelSet[0].__doc__)
 # Need to walk the singular of the object, that is the list in the object
 
 # Get the schema location for logCurveInfo
