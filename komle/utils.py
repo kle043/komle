@@ -3,16 +3,19 @@ from typing import Dict, List, Union
 from collections import OrderedDict
 import pyxb
 
-
-
-if 'komle.bindings.v20' in sys.modules:
-
+if 'komle.bindings.v20.witsml' in sys.modules:
+    #Due to namespace collision we can't import bindings at the same time
     from komle.bindings.v20._eml import TimeStamp
     timestamp = TimeStamp
-else:
+
+elif 'komle.bindings.v1411.write.witsml' in sys.modules:
     # Default to import read_bindings
+    from komle.bindings.v1411.write.witsml import timestamp
+    timestamp = timestamp
+else:
     from komle.bindings.v1411.read.witsml import timestamp
     timestamp = timestamp
+
 
 
 LOG_PRIM_TYPES = {'byte': bytes,
