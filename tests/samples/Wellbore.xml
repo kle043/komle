@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wellbore xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+          xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+          xmlns:gco="http://www.isotc211.org/2005/gco"
+          xmlns:gmd="http://www.isotc211.org/2005/gmd"
+          xmlns:gsr="http://www.isotc211.org/2005/gsr"
+          xmlns:gts="http://www.isotc211.org/2005/gts"
+          xmlns:gml="http://www.opengis.net/gml/3.2"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/Wellbore.xsd"
+          schemaVersion="2.0"
+          uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1.4.1.1">
+      <eml:Identifier>B-01</eml:Identifier>
+      <eml:Description>Identifier is created from the uid of the input scheme</eml:Description>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>A-42</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:19:23.93-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+      <eml:LastUpdate>2001-05-31T08:15:00Z</eml:LastUpdate>
+   </eml:Citation>
+   <Number>1234-0987</Number>
+   <SuffixAPI>02</SuffixAPI>
+   <NumGovt>Govt001</NumGovt>
+   <StatusWellbore>active</StatusWellbore>
+   <PurposeWellbore>exploration</PurposeWellbore>
+   <TypeWellbore>initial</TypeWellbore>
+   <Shape>horizontal</Shape>
+   <DTimKickoff>2001-03-15T13:20:00Z</DTimKickoff>
+   <Md uom="ft" datum="unknown">0</Md>
+   <Tvd uom="ft" datum="unknown">0</Tvd>
+   <MdKickoff uom="ft" datum="unknown">0</MdKickoff>
+   <TvdKickoff uom="ft" datum="unknown">0</TvdKickoff>
+   <MdPlanned uom="ft" datum="unknown">15800</MdPlanned>
+   <TvdPlanned uom="ft" datum="unknown">12567</TvdPlanned>
+   <MdSubSeaPlanned uom="ft" datum="unknown">12800</MdSubSeaPlanned>
+   <TvdSubSeaPlanned uom="ft" datum="unknown">9567</TvdSubSeaPlanned>
+   <DayTarget uom="d">128</DayTarget>
+   <Well>
+      <eml:ContentType>well</eml:ContentType>
+      <eml:Title>6507/7-A-42</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      <eml:UuidAuthority>W-12</eml:UuidAuthority>
+      <eml:VersionString>1411_input</eml:VersionString>
+   </Well>
+</Wellbore>

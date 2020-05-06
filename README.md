@@ -1,14 +1,15 @@
 # komle
 
-komle, a python library for [WITSML v1.4.1.1](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/index_witsml_schema.html), uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the generated schemas.
+komle, a python library for WITSML, uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the schemas. 
 
 Some of the features are:
 
-* WITSML data model bindings
+* WITSML data model bindings for schema v1.4.1.1 and v2.0
+    - **Note** just one version can be used in the same runtime, due to namespace collision
 * WITSML to dict, for use in a pandas dataframe or json
 * Unit converter based on [witsmlUnitDict](http://w3.energistics.org/schema/WITSML_v1.4.1.1_Data_Schema/witsml_v1.4.1.1_data/ancillary/witsmlUnitDict.xml)
 * Soap client to request data from a witsml server, according to the [webservice description](http://w3.energistics.org/schema/witsml_v1.4.0_api/WMLS.WSDL)
-* Supported for the generated write schemas, to be used for WMLS_AddToStore
+* Support for the generated write schemas, to be used for WMLS_AddToStore
     - **Note** that write_bindings can not be imported at the same time as read_bindings
 
 
@@ -28,7 +29,7 @@ pip3 install -U .
 ## Getting started
 
 ``` bash
-from komle.read_bindings import witsml
+from komle.bindings.v1411.read import witsml
 from komle import utils as ku
 import pandas as pd # Not part of komle setup
 

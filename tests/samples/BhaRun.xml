@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BhaRun xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+        xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+        xmlns:gco="http://www.isotc211.org/2005/gco"
+        xmlns:gmd="http://www.isotc211.org/2005/gmd"
+        xmlns:gsr="http://www.isotc211.org/2005/gsr"
+        xmlns:gts="http://www.isotc211.org/2005/gts"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/BhaRun.xsd"
+        schemaVersion="2.0"
+        uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1.4.1.1">
+      <eml:Identifier>W-12B-01run-21</eml:Identifier>
+      <eml:Description>Identifier is created from the uid of the input scheme</eml:Description>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>21</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:17:43.333-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+   </eml:Citation>
+   <DTimStart>2001-05-15T13:08:00Z</DTimStart>
+   <DTimStop>2001-12-15T13:20:00Z</DTimStop>
+   <DTimStartDrilling>2001-05-20T09:20:00Z</DTimStartDrilling>
+   <DTimStopDrilling>2001-12-10T15:20:00Z</DTimStopDrilling>
+   <PlanDogleg uom="dega/ft">1.3</PlanDogleg>
+   <ActDogleg uom="dega/ft">1.2</ActDogleg>
+   <ActDoglegMx uom="dega/ft">1.5</ActDoglegMx>
+   <StatusBha>final</StatusBha>
+   <NumBitRun>7</NumBitRun>
+   <NumStringRun>5</NumStringRun>
+   <ReasonTrip>Complete BHA run.</ReasonTrip>
+   <ObjectiveBha>Drilling</ObjectiveBha>
+   <DrillingParams uid="dp1">
+      <ETimOpBit uom="h">2.25</ETimOpBit>
+      <MdHoleStart uom="ft" datum="kelly bushing">6000</MdHoleStart>
+      <MdHoleStop uom="ft" datum="kelly bushing">7000</MdHoleStop>
+      <Tubular>Tub 001</Tubular>
+      <HkldRot uom="klbf">150.00</HkldRot>
+      <OverPull uom="klbf">220.00</OverPull>
+      <SlackOff uom="klbf">180.00</SlackOff>
+      <HkldUp uom="klbf">200.00</HkldUp>
+      <HkldDn uom="klbf">200.00</HkldDn>
+      <TqOnBotAv uom="N.m">3000.00</TqOnBotAv>
+      <TqOnBotMx uom="N.m">3500.00</TqOnBotMx>
+      <TqOnBotMn uom="N.m">2800.00</TqOnBotMn>
+      <TqOffBotAv uom="N.m">2000.00</TqOffBotAv>
+      <TqDhAv uom="N.m">3000.00</TqDhAv>
+      <WtAboveJar uom="lbf">100000.00</WtAboveJar>
+      <WtBelowJar uom="lbf">100000.00</WtBelowJar>
+      <WtMud uom="lbm/ft3">0.14</WtMud>
+      <VelNozzleAv uom="ft/min">15</VelNozzleAv>
+      <PowBit uom="nW">500.0</PowBit>
+      <PresDropBit uom="psi">500</PresDropBit>
+      <CTimHold uom="h">.30</CTimHold>
+      <CTimSteering uom="h">1.50</CTimSteering>
+      <CTimDrillRot uom="h">2.25</CTimDrillRot>
+      <CTimDrillSlid uom="h">.45</CTimDrillSlid>
+      <CTimCirc uom="h">2.30</CTimCirc>
+      <CTimReam uom="h">1.25</CTimReam>
+      <DistDrillRot uom="ft">300.00</DistDrillRot>
+      <DistDrillSlid uom="ft">200.00</DistDrillSlid>
+      <DistReam uom="ft">50.00</DistReam>
+      <DistHold uom="ft">100.00</DistHold>
+      <DistSteering uom="ft">200.00</DistSteering>
+      <RpmAv uom="rpm">100.00</RpmAv>
+      <RpmMx uom="rpm">110.00</RpmMx>
+      <RpmMn uom="rpm">80.00</RpmMn>
+      <RpmAvDh uom="rpm">80.00</RpmAvDh>
+      <RopAv uom="ft/h">80.00</RopAv>
+      <RopMx uom="ft/h">90.00</RopMx>
+      <RopMn uom="ft/h">70.00</RopMn>
+      <WobAv uom="lbf">12.50</WobAv>
+      <WobMx uom="lbf">12.50</WobMx>
+      <WobMn uom="lbf">12.50</WobMn>
+      <WobAvDh uom="lbf">12.50</WobAvDh>
+      <ReasonTrip>Drilling Params reason for trip</ReasonTrip>
+      <ObjectiveBha>Drilling</ObjectiveBha>
+      <AziTop uom="dega">30.00</AziTop>
+      <AziBottom uom="dega">45.00</AziBottom>
+      <InclStart uom="dega">0.00</InclStart>
+      <InclMx uom="dega">20.00</InclMx>
+      <InclMn uom="dega">0.00</InclMn>
+      <InclStop uom="dega">10.00</InclStop>
+      <TempMudDhMx uom="degC">50.00</TempMudDhMx>
+      <PresPumpAv uom="psi">1000.00</PresPumpAv>
+      <FlowrateBit uom="bbl/min">60.00</FlowrateBit>
+      <Comments>Drilling Params comments</Comments>
+   </DrillingParams>
+   <Wellbore>
+      <eml:ContentType>obj_wellbore</eml:ContentType>
+      <eml:Title>B-01</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      <eml:UuidAuthority>B-01</eml:UuidAuthority>
+   </Wellbore>
+   <Tubular>
+      <eml:ContentType>obj_tubular</eml:ContentType>
+      <eml:Title>TubAssy001</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      <eml:UuidAuthority>45t12</eml:UuidAuthority>
+      <eml:VersionString>1411_input</eml:VersionString>
+   </Tubular>
+</BhaRun>

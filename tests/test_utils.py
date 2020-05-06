@@ -1,10 +1,11 @@
 import os
 import pytest
-from komle import utils as ku
-from komle.read_bindings import witsml
 from datetime import datetime
+from komle.bindings.v1411.read import witsml
+from komle import utils as ku
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples')
+
 
 @pytest.mark.parametrize("test_filename", 
                         ["log.xml",  

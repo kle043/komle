@@ -18,7 +18,7 @@ def setup():
 
     
 def test_logs():
-    from komle.write_bindings import witsml
+    from komle.bindings.v1411.write import witsml
     logs = witsml.logs(version=witsml.__version__)
     log = witsml.obj_log(uidWell='1', 
                          uidWellbore='2', 
@@ -32,7 +32,7 @@ def test_logs():
     logs.toDOM()
 
 def test_trajecorys():
-    from komle.write_bindings import witsml
+    from komle.bindings.v1411.write import witsml
     trajs = witsml.trajectorys(version=witsml.__version__)
 
     traj = witsml.obj_trajectory(uidWell='4', 

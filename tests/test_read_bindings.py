@@ -1,6 +1,6 @@
 import os
 import pytest
-from komle.read_bindings import witsml
+from komle.bindings.v1411.read import witsml
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'samples')
 

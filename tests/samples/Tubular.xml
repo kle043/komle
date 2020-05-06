@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tubular xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+         xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+         xmlns:gco="http://www.isotc211.org/2005/gco"
+         xmlns:gmd="http://www.isotc211.org/2005/gmd"
+         xmlns:gsr="http://www.isotc211.org/2005/gsr"
+         xmlns:gts="http://www.isotc211.org/2005/gts"
+         xmlns:gml="http://www.opengis.net/gml/3.2"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:ns0="http://www.energistics.org/energyml/data/witsmlv2"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/Tubular.xsd"
+         schemaVersion="2.0"
+         uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1.4.1.1">
+      <eml:Identifier>W-12B-0145t12</eml:Identifier>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>TubAssy001</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:19:15.416-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+   </eml:Citation>
+   <TypeTubularAssy>drilling</TypeTubularAssy>
+   <ValveFloat>false</ValveFloat>
+   <SourceNuclear>false</SourceNuclear>
+   <DiaHoleAssy uom="in">12.25</DiaHoleAssy>
+   <TubularComponent uid="tc-1">
+      <TypeTubularComponent>bit PDC fixed cutter</TypeTubularComponent>
+      <Sequence>1</Sequence>
+      <Description>PDC fixed cutter bit</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">1.75</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <Model>12 1/4" Hycalog DS 130 DF</Model>
+      <NameTag uid="9999">
+         <Name>9999</Name>
+         <NumberingScheme>serial number</NumberingScheme>
+      </NameTag>
+      <AreaNozzleFlow uom="in2">2.00</AreaNozzleFlow>
+      <BitRecord uid="1">
+         <NumBit>Bit no. 1</NumBit>
+         <DiaBit uom="in">12.25</DiaBit>
+         <DiaPassThru uom="in">12.25</DiaPassThru>
+         <DiaPilot uom="in">12.25</DiaPilot>
+         <Manufacturer>Hycalog</Manufacturer>
+         <TypeBit>roller cone</TypeBit>
+         <CodeIADC>X</CodeIADC>
+         <CondInitInner>4</CondInitInner>
+         <CondInitOuter>4</CondInitOuter>
+         <CondInitDull>BC</CondInitDull>
+         <CondInitLocation>Cracked Cone</CondInitLocation>
+         <CondInitBearing>4</CondInitBearing>
+         <CondInitGauge>L</CondInitGauge>
+         <CondInitOther>Cone Dragged</CondInitOther>
+         <CondInitReason>DMF</CondInitReason>
+         <CondFinalInner>4</CondFinalInner>
+         <CondFinalOuter>4</CondFinalOuter>
+         <CondFinalDull>BC</CondFinalDull>
+         <CondFinalLocation>Cracked Cone</CondFinalLocation>
+         <CondFinalBearing>4</CondFinalBearing>
+         <CondFinalGauge>L</CondFinalGauge>
+         <CondFinalOther>Cone Dragged</CondFinalOther>
+         <CondFinalReason>DMF</CondFinalReason>
+         <Drive>Motor</Drive>
+         <BitClass>U</BitClass>
+         <Cost currency="usd"/>
+      </BitRecord>
+      <Nozzle uid="noz-1">
+         <Index>1</Index>
+         <DiaNozzle uom="in">12.03125</DiaNozzle>
+         <TypeNozzle>normal</TypeNozzle>
+         <Len uom="in">6.00</Len>
+      </Nozzle>
+      <Nozzle uid="noz-2">
+         <Index>2</Index>
+         <DiaNozzle uom="in">12.03125</DiaNozzle>
+         <TypeNozzle>normal</TypeNozzle>
+         <Len uom="in">6.50</Len>
+      </Nozzle>
+      <Nozzle uid="noz-3">
+         <Index>3</Index>
+         <DiaNozzle uom="in">13.03125</DiaNozzle>
+         <TypeNozzle>normal</TypeNozzle>
+         <Len uom="in">8.50</Len>
+      </Nozzle>
+   </TubularComponent>
+   <TubularComponent uid="tc-2">
+      <TypeTubularComponent>reamer</TypeTubularComponent>
+      <Sequence>2</Sequence>
+      <Description>Reamer</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">1.75</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <HoleOpener>
+         <TypeHoleOpener>under-reamer</TypeHoleOpener>
+         <NumCutter>4</NumCutter>
+         <Manufacturer>Drill Tools</Manufacturer>
+         <DiaHoleOpener uom="in">12.00</DiaHoleOpener>
+      </HoleOpener>
+      <Nozzle uid="noz-1">
+         <Index>1</Index>
+         <DiaNozzle uom="in">3.00</DiaNozzle>
+         <TypeNozzle>normal</TypeNozzle>
+         <Len uom="in">6.00</Len>
+      </Nozzle>
+      <Nozzle uid="noz-2">
+         <Index>2</Index>
+         <DiaNozzle uom="in">2.98</DiaNozzle>
+         <TypeNozzle>normal</TypeNozzle>
+         <Len uom="in">5.98</Len>
+      </Nozzle>
+   </TubularComponent>
+   <TubularComponent uid="tc-3">
+      <TypeTubularComponent>stabilizer</TypeTubularComponent>
+      <Sequence>3</Sequence>
+      <Description>Stabilizer</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">3.14</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <Stabilizer uid="stab-1">
+         <LenBlade uom="ft">6.00</LenBlade>
+         <OdBladeMx uom="in">10.00</OdBladeMx>
+         <OdBladeMn uom="in">8.00</OdBladeMn>
+         <DistBladeBot uom="ft">2.00</DistBladeBot>
+         <ShapeBlade>straight</ShapeBlade>
+         <FactFric>0.6</FactFric>
+         <TypeBlade>welded</TypeBlade>
+      </Stabilizer>
+   </TubularComponent>
+   <TubularComponent uid="tc-4">
+      <TypeTubularComponent>motor</TypeTubularComponent>
+      <Sequence>4</Sequence>
+      <Description>Motor</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">26.34</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <NameTag uid="8762456">
+         <Name>8762456</Name>
+         <NumberingScheme>serial number</NumberingScheme>
+      </NameTag>
+      <Motor>
+         <OffsetTool uom="ft">10.00</OffsetTool>
+         <PresLossFact>0.7</PresLossFact>
+         <FlowrateMn uom="bbl/d">80.00</FlowrateMn>
+         <FlowrateMx uom="bbl/d">100.00</FlowrateMx>
+         <DiaRotorNozzle uom="in">5.00</DiaRotorNozzle>
+         <ClearanceBearBox uom="mm">5.00</ClearanceBearBox>
+         <LobesRotor>4</LobesRotor>
+         <LobesStator>4</LobesStator>
+         <TypeBearing>oil seal</TypeBearing>
+         <TempOpMx uom="degC">100.00</TempOpMx>
+         <RotorCatcher>false</RotorCatcher>
+         <DumpValve>true</DumpValve>
+         <DiaNozzle uom="in">6.50</DiaNozzle>
+         <Rotatable>true</Rotatable>
+         <BendSettingsMn uom="dega">0.00</BendSettingsMn>
+         <BendSettingsMx uom="dega">10.00</BendSettingsMx>
+      </Motor>
+   </TubularComponent>
+   <TubularComponent uid="tc-5">
+      <TypeTubularComponent>sub-bent</TypeTubularComponent>
+      <Sequence>5</Sequence>
+      <Description>A bent sub</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">8.32</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <Bend uid="bend-1">
+         <Angle uom="dega">1.00</Angle>
+         <DistBendBot uom="ft">4.12</DistBendBot>
+      </Bend>
+   </TubularComponent>
+   <TubularComponent uid="tc-6">
+      <TypeTubularComponent>logging while drilling tool</TypeTubularComponent>
+      <Sequence>6</Sequence>
+      <Description>LWD Tool</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">20.00</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <MwdTool>
+         <FlowrateMn uom="bbl/d">150.00</FlowrateMn>
+         <FlowrateMx uom="bbl/d">100.00</FlowrateMx>
+         <TempMx uom="degC">80.00</TempMx>
+         <IdEquv uom="in">5.00</IdEquv>
+         <Sensor uid="sen-1">
+            <TypeMeasurement>resistivity</TypeMeasurement>
+            <OffsetBot uom="ft">1.00</OffsetBot>
+            <Comments>Sperry Sun Tool</Comments>
+         </Sensor>
+         <Sensor uid="sen-2">
+            <TypeMeasurement>gamma ray</TypeMeasurement>
+            <OffsetBot uom="ft">1.00</OffsetBot>
+            <Comments>Sperry Sun Tool</Comments>
+         </Sensor>
+      </MwdTool>
+   </TubularComponent>
+   <TubularComponent uid="tc-7">
+      <TypeTubularComponent>jar</TypeTubularComponent>
+      <Sequence>7</Sequence>
+      <Description>Jar</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">20.00</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+      <Connection uid="con-1">
+         <Id uom="in">2.00</Id>
+         <Od uom="in">3.20</Od>
+         <Len uom="in">9.00</Len>
+         <TypeThread>O.H.</TypeThread>
+         <SizeThread uom="in">1.00</SizeThread>
+         <TensYield uom="Mpsi">36.00</TensYield>
+         <TqYield uom="lbf.ft">36.00</TqYield>
+         <Position>top</Position>
+         <CriticalCrossSection uom="in2">5.00</CriticalCrossSection>
+         <PresLeak uom="psi">1200.00</PresLeak>
+         <TqMakeup uom="lbf.ft">21000</TqMakeup>
+      </Connection>
+      <Jar>
+         <ForUpSet uom="klbf">5.00</ForUpSet>
+         <ForDownSet uom="klbf">4.50</ForDownSet>
+         <ForUpTrip uom="klbf">5.50</ForUpTrip>
+         <ForDownTrip uom="klbf">4.60</ForDownTrip>
+         <ForPmpOpen uom="klbf">6.00</ForPmpOpen>
+         <ForSealFric uom="klbf">4.00</ForSealFric>
+         <TypeJar>mechanical</TypeJar>
+         <JarAction>both</JarAction>
+      </Jar>
+   </TubularComponent>
+   <TubularComponent uid="tc-8">
+      <TypeTubularComponent>drill collar</TypeTubularComponent>
+      <Sequence>8</Sequence>
+      <Description>Drill Collar</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">20.00</Len>
+      <LenJointAv uom="ft">20.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+   </TubularComponent>
+   <TubularComponent uid="tc-9">
+      <TypeTubularComponent>heavy weight drill pipe LH</TypeTubularComponent>
+      <Sequence>9</Sequence>
+      <Description>HWDPLH</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">30.00</Len>
+      <LenJointAv uom="ft">30.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+   </TubularComponent>
+   <TubularComponent uid="tc-10">
+      <TypeTubularComponent>drill pipe</TypeTubularComponent>
+      <Sequence>10</Sequence>
+      <Description>New high pressureDrill Pipe</Description>
+      <Id uom="in">2.063</Id>
+      <Od uom="in">3.5</Od>
+      <Len uom="ft">30.00</Len>
+      <LenJointAv uom="ft">30.00</LenJointAv>
+      <NumJointStand>2</NumJointStand>
+      <WtPerLen uom="lbm/ft">25.00</WtPerLen>
+      <Grade>G-105</Grade>
+      <OdDrift uom="in">3.40</OdDrift>
+      <TensYield uom="Mpsi">36.00</TensYield>
+      <TqYield uom="lbf.ft">36</TqYield>
+      <LenFishneck uom="in">5.00</LenFishneck>
+      <IdFishneck uom="in">3.50</IdFishneck>
+      <OdFishneck uom="in">5.00</OdFishneck>
+      <Disp uom="ft3">1.30</Disp>
+      <PresBurst uom="psi">4000.00</PresBurst>
+      <PresCollapse uom="psi">2500.00</PresCollapse>
+      <ClassService>Service class descr</ClassService>
+      <WearWall uom="%">10.00</WearWall>
+      <ThickWall uom="mm">0.75</ThickWall>
+      <ConfigCon>bottom pin</ConfigCon>
+      <BendStiffness uom="N/m">750000.00</BendStiffness>
+      <AxialStiffness uom="N/m">250000.00</AxialStiffness>
+      <TorsionalStiffness uom="N/m">375000.00</TorsionalStiffness>
+      <TypeMaterial>steel</TypeMaterial>
+      <DoglegMx uom="dega/ft">3.00</DoglegMx>
+      <Vendor>British Steel</Vendor>
+   </TubularComponent>
+   <Wellbore>
+      <eml:ContentType>obj_wellbore</eml:ContentType>
+      <eml:Title>A-42</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+      <eml:UuidAuthority>B-01</eml:UuidAuthority>
+      <eml:VersionString>2.0</eml:VersionString>
+   </Wellbore>
+</Tubular>

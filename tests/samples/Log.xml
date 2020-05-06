@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Log xmlns="http://www.energistics.org/energyml/data/witsmlv2"
+     xmlns:eml="http://www.energistics.org/energyml/data/commonv2"
+     xmlns:gco="http://www.isotc211.org/2005/gco"
+     xmlns:gmd="http://www.isotc211.org/2005/gmd"
+     xmlns:gsr="http://www.isotc211.org/2005/gsr"
+     xmlns:gts="http://www.isotc211.org/2005/gts"
+     xmlns:gml="http://www.opengis.net/gml/3.2"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.energistics.org/energyml/data/witsmlv2 file:///C:/Energistics2/energyml/data/witsml/v2.0/xsd_schemas/Log.xsd"
+     schemaVersion="2.0"
+     uuid="00000000-0000-0000-0000-000000000000">
+   <eml:Aliases authority="1.4.1.1">
+      <eml:Identifier>W-12B-01f34a</eml:Identifier>
+      <eml:Description>Identifier is created from the uid of the input scheme</eml:Description>
+   </eml:Aliases>
+   <eml:Citation>
+      <eml:Title>L001</eml:Title>
+      <eml:Originator>1411_input</eml:Originator>
+      <eml:Creation>2018-01-23T08:18:18.731-06:00</eml:Creation>
+      <eml:Format>Mapforce</eml:Format>
+      <eml:LastUpdate>2003-11-24T08:17:00Z</eml:LastUpdate>
+   </eml:Citation>
+   <TimeDepth>measured depth</TimeDepth>
+   <RunNumber>12</RunNumber>
+   <StartIndex xsi:type="DepthIndexValue">
+      <Depth>499</Depth>
+   </StartIndex>
+   <EndIndex xsi:type="DepthIndexValue">
+      <Depth>509.01</Depth>
+   </EndIndex>
+   <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+   <LoggingMethod>mixed</LoggingMethod>
+   <Wellbore>
+      <eml:ContentType>wellbore</eml:ContentType>
+      <eml:Title>A-42</eml:Title>
+      <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+   </Wellbore>
+   <ChannelSet schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+      <eml:Citation>
+         <eml:Title>L001</eml:Title>
+         <eml:Originator>1411_input</eml:Originator>
+         <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+         <eml:Format>Mapforce</eml:Format>
+      </eml:Citation>
+      <Index>
+         <IndexType>measured depth</IndexType>
+         <Uom>m</Uom>
+         <Direction>increasing</Direction>
+         <Mnemonic>measured depth</Mnemonic>
+      </Index>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-1">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Mdepth</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Mdepth</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-2">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Vdepth</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Vdepth</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-3">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Bit Dist</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Bit Dist</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-4">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>TQ on btm</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>TQ on btm</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-5">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>TQ off btm</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>TQ off btm</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-6">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>ROP</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>ROP</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-7">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>WOP</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>WOP</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-8">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>HKLD</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>HKLD</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-9">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Surf RPM</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Surf RPM</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-10">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Mtr RPM</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Mtr RPM</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-11">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Avg TQ</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Avg TQ</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-12">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Max TQ</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Max TQ</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-13">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Min TQ</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Min TQ</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-14">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Max - Min TQ</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Max - Min TQ</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-15">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Max - Min TQ</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Max - Min TQ</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-16">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Pump p avg</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Pump p avg</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-17">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Mud D avg</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Mud D avg</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-18">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Mud Temp avg</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Mud Temp avg</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-19">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>Bit RPM</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>Bit RPM</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-20">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>DXC</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>DXC</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Channel schemaVersion="2.0.0.0" uuid="00000000-0000-0000-0000-000000000000">
+         <eml:Aliases authority="lci-21">
+            <eml:Identifier>Identifier for this channel</eml:Identifier>
+         </eml:Aliases>
+         <eml:Citation>
+            <eml:Title>ECD</eml:Title>
+            <eml:Originator>1411_input</eml:Originator>
+            <eml:Creation>2003-11-24T08:15:00Z</eml:Creation>
+            <eml:Format>Mapforce</eml:Format>
+         </eml:Citation>
+         <Mnemonic>ECD</Mnemonic>
+         <DataType>double</DataType>
+         <Uom>m</Uom>
+         <GrowingStatus>active</GrowingStatus>
+         <TimeDepth>time</TimeDepth>
+         <ChannelClass>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>title</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelClass>
+         <StartIndex xsi:type="DepthIndexValue">
+            <Depth>499</Depth>
+         </StartIndex>
+         <EndIndex xsi:type="DepthIndexValue">
+            <Depth>509.01</Depth>
+         </EndIndex>
+         <LoggingCompanyName>Baker Hughes INTEQ</LoggingCompanyName>
+         <Derivation>raw</Derivation>
+         <LoggingMethod>mixed</LoggingMethod>
+         <NominalHoleSize uom="m">-999</NominalHoleSize>
+         <Index>
+            <IndexType>measured depth</IndexType>
+            <Uom>m</Uom>
+            <Direction>decreasing</Direction>
+            <Mnemonic>DEPTH</Mnemonic>
+         </Index>
+      </Channel>
+      <Data>
+         <Data/>
+      </Data>
+      <DataContext xsi:type="ChannelValueContext">
+         <ChannelReference>
+            <eml:ContentType>log</eml:ContentType>
+            <eml:Title>DEPTH</eml:Title>
+            <eml:Uuid>00000000-0000-0000-0000-000000000000</eml:Uuid>
+         </ChannelReference>
+         <DataValue>-999</DataValue>
+      </DataContext>
+   </ChannelSet>
+</Log>
