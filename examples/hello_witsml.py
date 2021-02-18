@@ -8,11 +8,14 @@ or just run it using python3
 #%%
 
 import os
+
+import pyxb
 from komle.bindings.v1411.read import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
 from komle import utils as ku
 import pandas as pd # Not included in komle setup.py
+from lxml import etree
 
 sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
 
@@ -110,6 +113,26 @@ print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
 print([v for v in data_dict['GS_CFM2CUMDVOL'][0:5]])
 print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
+
+# %% Working with invalid WITSML files
+# PYXB that is used for the bindings will try to validate that a given xml
+# file conforms to the schema. 
+
+try:
+    with open(os.path.join(sample_path, 'invalid_log.xml'), 'r') as log_file:
+        logs = witsml.CreateFromDocument(log_file.read())
+except pyxb.PyXBException as e:
+    print(e)
+
+# %% This can be a challenge if you really, really want the content as a python object,
+# one option is to use lxml to remove invalid elements.
+
+tree = etree.parse(os.path.join(sample_path, 'invalid_log.xml'))
+
+for not_witsml in tree.xpath("//*[starts-with(name(), 'priv_')]"):
+    not_witsml.getparent().remove(not_witsml)
+
+logs = witsml.CreateFromDocument(etree.tostring(tree))
 
 # %% Soap client using wsdl
 
