@@ -1,6 +1,9 @@
 import os
+import requests
 import sys
 from suds.client import Client
+from suds.transport.http import HttpAuthenticated
+from suds.transport import Reply
 from typing import Union
 
 if 'komle.bindings.v1411.write' in sys.modules:
@@ -11,7 +14,26 @@ else:
     # Default to import read_bindings
     from komle.bindings.v1411.read import witsml
 
-def simple_client(service_url: str, username: str, password: str, agent_name: str='komle') -> Client:
+class RequestsTransport(HttpAuthenticated):
+    def __init__(self, **kwargs):
+        self.verify = kwargs.pop('verify', None)
+        self.auth = (kwargs.pop('username', None), kwargs.pop('password', None))
+        HttpAuthenticated.__init__(self, **kwargs)
+
+    def send(self, request):
+        resp = requests.post(
+            request.url,
+            data=request.message,
+            headers=request.headers,
+            verify=self.verify,
+            auth=self.auth,
+        )
+        resp.raise_for_status()
+        result = Reply(resp.status_code, resp.headers, resp.content)
+        return result
+
+def simple_client(service_url: str, username: str, password: str,
+                  agent_name: str='komle', verify: Union[bool,str]=True) -> Client:
     '''Create a simple soap client using Suds, 
     
     This initializes the client with a local version of WMLS.WSDL 1.4 from energistics.
@@ -21,22 +43,26 @@ def simple_client(service_url: str, username: str, password: str, agent_name: st
         username (str): username on the service
         password (str): password on the service
         agent_name (str): User-Agent name to pass in header 
+        verify (bool|str): Whether to verify TLS certificates, or path to a cacerts file
 
     Returns:
         client (Client): A suds client with wsdl
     '''
 
+    transport = RequestsTransport(username=username,
+                                  password=password,
+                                  verify=verify)
+
     client = Client(f'file:{os.path.join(os.path.dirname(__file__), "WMLS.WSDL")}', 
-                    username=username, 
-                    password=password, 
                     location=service_url)
 
-    client.set_options(headers={'User-Agent':agent_name})
+    client.set_options(transport=transport, headers={'User-Agent':agent_name})
 
     return client
 
 class StoreClient:
-    def __init__(self, service_url: str, username: str, password: str, agent_name: str='komle'):
+    def __init__(self, service_url: str, username: str, password: str,
+                 agent_name: str='komle', verify: Union[bool,str]=True):
         '''Create a GetFromStore client, 
         
         This initializes the client with a local version of WMLS.WSDL 1.4 from energistics.
@@ -46,12 +72,14 @@ class StoreClient:
             username (str): username on the service
             password (str): password on the service
             agent_name (str): User-Agent name to pass in header
+            verify (bool|str): Whether to verify TLS certificates, or path to a cacerts file
         '''
     
         self.soap_client = simple_client(service_url,
                                          username,
                                          password,
-                                         agent_name)
+                                         agent_name,
+                                         verify)
     
     def get_bhaRuns(self, 
                     q_bha: witsml.obj_bhaRun,
