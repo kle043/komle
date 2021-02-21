@@ -35,6 +35,17 @@ def simple_client(service_url: str, username: str, password: str, agent_name: st
 
     return client
 
+class StoreException(Exception):
+    def __init__(self, reply):
+        super().__init__(f'{reply.Result}: {reply.SuppMsgOut}')
+        self.reply = reply
+
+def _parse_reply(reply):
+    if reply.Result == 1:
+        return witsml.CreateFromDocument(reply.XMLout)
+    else:
+        raise StoreException(reply)
+
 class StoreClient:
     def __init__(self, service_url: str, username: str, password: str, agent_name: str='komle'):
         '''Create a GetFromStore client, 
@@ -69,6 +80,7 @@ class StoreClient:
             witsml.bhaRuns: bhaRuns a collection of bhaRun
         
         Raises:
+            StoreException: If the soap server replies with an error
             pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
         '''
     
@@ -81,7 +93,7 @@ class StoreClient:
                                                                 OptionsIn=f'returnElements={returnElements}'
                                                                )
     
-        return witsml.CreateFromDocument(reply_bhas.XMLout)
+        return _parse_reply(reply_bhas)
 
 
     def get_logs(self, 
@@ -101,6 +113,7 @@ class StoreClient:
             witsml.logs: logs a collection of log
         
         Raises:
+            StoreException: If the soap server replies with an error
             pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
         '''
     
@@ -113,7 +126,7 @@ class StoreClient:
                                                                 OptionsIn=f'returnElements={returnElements}'
                                                                )
 
-        return witsml.CreateFromDocument(reply_logs.XMLout)
+        return _parse_reply(reply_logs)
 
     def get_mudLogs(self, 
                     q_mudlog: witsml.obj_mudLog,
@@ -132,6 +145,7 @@ class StoreClient:
             witsml.mudLogs: mudLogs, a collection of mudLog
         
         Raises:
+            StoreException: If the soap server replies with an error
             pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
         '''
     
@@ -144,7 +158,7 @@ class StoreClient:
                                                                    OptionsIn=f'returnElements={returnElements}'
                                                                   )
     
-        return witsml.CreateFromDocument(reply_mudlogs.XMLout)
+        return _parse_reply(reply_mudlogs)
 
     def get_trajectorys(self, 
                         q_traj: witsml.obj_trajectory,
@@ -162,6 +176,7 @@ class StoreClient:
             witsml.trajectorys: trajectorys, a collection of trajectory
         
         Raises:
+            StoreException: If the soap server replies with an error
             pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
         '''
     
@@ -174,7 +189,7 @@ class StoreClient:
                                                                 OptionsIn=f'returnElements={returnElements}'
                                                                )
     
-        return witsml.CreateFromDocument(reply_traj.XMLout)
+        return _parse_reply(reply_traj)
 
     def get_wellbores(self, 
                       q_wellbore: witsml.obj_wellbore,
@@ -192,6 +207,7 @@ class StoreClient:
             witsml.wellbores: wellbores
         
         Raises:
+            StoreException: If the soap server replies with an error
             pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
         '''
     
@@ -204,4 +220,4 @@ class StoreClient:
                                                                      OptionsIn=f'returnElements={returnElements}'
                                                                     )
     
-        return witsml.CreateFromDocument(reply_wellbores.XMLout)
+        return _parse_reply(reply_wellbores)
