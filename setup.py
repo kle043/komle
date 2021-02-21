@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
       name='komle',
-      version='0.2',
+      version='0.3',
       description='A python library to help with WITSML v1.4.1.1 and v2.0',
       url='https://github.com/kle043/komle',
       packages=find_packages(exclude=('tests',)),
