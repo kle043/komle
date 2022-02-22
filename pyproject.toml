@@ -20,6 +20,7 @@ pytest = "^7.0.1"
 pip-audit = "^2.0.0"
 prospector = "^1.6.0"
 darker = "^1.4.1"
+pydocstyle = "^6.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
