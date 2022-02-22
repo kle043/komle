@@ -5,16 +5,21 @@
 # Namespace http://www.isotc211.org/2005/gmd [xmlns:gmd]
 
 from __future__ import unicode_literals
+
+import io
+import sys
+
 import pyxb
 import pyxb.binding
 import pyxb.binding.saxer
-import io
-import pyxb.utils.utility
 import pyxb.utils.domutils
-import sys
 import pyxb.utils.six as _six
+import pyxb.utils.utility
+
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:52e853d8-8ebe-11ea-ae29-f507f064c4f5')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier(
+    'urn:uuid:52e853d8-8ebe-11ea-ae29-f507f064c4f5'
+)
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -30,10 +35,13 @@ _module_typeBindings = pyxb.utils.utility.Object()
 import komle.bindings.v20._nsgroup as _ImportedBinding_bindings_v20__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding
-Namespace = pyxb.namespace.NamespaceForURI('http://www.isotc211.org/2005/gmd', create_if_missing=True)
+Namespace = pyxb.namespace.NamespaceForURI(
+    'http://www.isotc211.org/2005/gmd', create_if_missing=True
+)
 Namespace.configureCategories(['typeBinding', 'elementBinding'])
 
-def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
+
+def CreateFromDocument(xml_text, default_namespace=None, location_base=None):
     """Parse the given XML and use the document element to create a
     Python instance.
 
@@ -54,10 +62,14 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
 
     if pyxb.XMLStyle_saxer != pyxb._XMLStyle:
         dom = pyxb.utils.domutils.StringToDOM(xml_text)
-        return CreateFromDOM(dom.documentElement, default_namespace=default_namespace)
+        return CreateFromDOM(
+            dom.documentElement, default_namespace=default_namespace
+        )
     if default_namespace is None:
         default_namespace = Namespace.fallbackNamespace()
-    saxer = pyxb.binding.saxer.make_parser(fallback_namespace=default_namespace, location_base=location_base)
+    saxer = pyxb.binding.saxer.make_parser(
+        fallback_namespace=default_namespace, location_base=location_base
+    )
     handler = saxer.getContentHandler()
     xmld = xml_text
     if isinstance(xmld, _six.text_type):
@@ -66,7 +78,8 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
     instance = handler.rootObject()
     return instance
 
-def CreateFromDOM (node, default_namespace=None):
+
+def CreateFromDOM(node, default_namespace=None):
     """Create a Python instance from the given DOM node.
     The node tag must correspond to an element declaration in this module.
 
@@ -75,60 +88,26 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.bindings.v20._nsgroup import URL # {http://www.isotc211.org/2005/gmd}URL
-from komle.bindings.v20._nsgroup import CI_DateTypeCode # {http://www.isotc211.org/2005/gmd}CI_DateTypeCode
-from komle.bindings.v20._nsgroup import CI_OnLineFunctionCode # {http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode
-from komle.bindings.v20._nsgroup import CI_RoleCode # {http://www.isotc211.org/2005/gmd}CI_RoleCode
-from komle.bindings.v20._nsgroup import CI_PresentationFormCode # {http://www.isotc211.org/2005/gmd}CI_PresentationFormCode
-from komle.bindings.v20._nsgroup import DQ_EvaluationMethodTypeCode # {http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode
-from komle.bindings.v20._nsgroup import EX_Extent # {http://www.isotc211.org/2005/gmd}EX_Extent
-from komle.bindings.v20._nsgroup import AbstractEX_GeographicExtent # {http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent
-from komle.bindings.v20._nsgroup import EX_TemporalExtent # {http://www.isotc211.org/2005/gmd}EX_TemporalExtent
-from komle.bindings.v20._nsgroup import EX_VerticalExtent # {http://www.isotc211.org/2005/gmd}EX_VerticalExtent
-from komle.bindings.v20._nsgroup import MD_Identifier # {http://www.isotc211.org/2005/gmd}MD_Identifier
-from komle.bindings.v20._nsgroup import CI_Citation # {http://www.isotc211.org/2005/gmd}CI_Citation
-from komle.bindings.v20._nsgroup import CI_Date # {http://www.isotc211.org/2005/gmd}CI_Date
-from komle.bindings.v20._nsgroup import CI_ResponsibleParty # {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty
-from komle.bindings.v20._nsgroup import CI_Contact # {http://www.isotc211.org/2005/gmd}CI_Contact
-from komle.bindings.v20._nsgroup import CI_Telephone # {http://www.isotc211.org/2005/gmd}CI_Telephone
-from komle.bindings.v20._nsgroup import CI_Address # {http://www.isotc211.org/2005/gmd}CI_Address
-from komle.bindings.v20._nsgroup import CI_OnlineResource # {http://www.isotc211.org/2005/gmd}CI_OnlineResource
-from komle.bindings.v20._nsgroup import CI_Series # {http://www.isotc211.org/2005/gmd}CI_Series
-from komle.bindings.v20._nsgroup import AbstractDQ_Result # {http://www.isotc211.org/2005/gmd}AbstractDQ_Result
-from komle.bindings.v20._nsgroup import AbstractDQ_Element # {http://www.isotc211.org/2005/gmd}AbstractDQ_Element
-from komle.bindings.v20._nsgroup import AbstractDQ_PositionalAccuracy # {http://www.isotc211.org/2005/gmd}AbstractDQ_PositionalAccuracy
-from komle.bindings.v20._nsgroup import EX_Extent_Type # {http://www.isotc211.org/2005/gmd}EX_Extent_Type
-from komle.bindings.v20._nsgroup import AbstractEX_GeographicExtent_Type # {http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent_Type
-from komle.bindings.v20._nsgroup import EX_TemporalExtent_Type # {http://www.isotc211.org/2005/gmd}EX_TemporalExtent_Type
-from komle.bindings.v20._nsgroup import EX_VerticalExtent_Type # {http://www.isotc211.org/2005/gmd}EX_VerticalExtent_Type
-from komle.bindings.v20._nsgroup import AbstractDQ_Element_Type # {http://www.isotc211.org/2005/gmd}AbstractDQ_Element_Type
-from komle.bindings.v20._nsgroup import MD_Identifier_Type # {http://www.isotc211.org/2005/gmd}MD_Identifier_Type
-from komle.bindings.v20._nsgroup import CI_Citation_Type # {http://www.isotc211.org/2005/gmd}CI_Citation_Type
-from komle.bindings.v20._nsgroup import CI_Date_Type # {http://www.isotc211.org/2005/gmd}CI_Date_Type
-from komle.bindings.v20._nsgroup import CI_ResponsibleParty_Type # {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_Type
-from komle.bindings.v20._nsgroup import CI_Contact_Type # {http://www.isotc211.org/2005/gmd}CI_Contact_Type
-from komle.bindings.v20._nsgroup import CI_Telephone_Type # {http://www.isotc211.org/2005/gmd}CI_Telephone_Type
-from komle.bindings.v20._nsgroup import CI_Address_Type # {http://www.isotc211.org/2005/gmd}CI_Address_Type
-from komle.bindings.v20._nsgroup import CI_OnlineResource_Type # {http://www.isotc211.org/2005/gmd}CI_OnlineResource_Type
-from komle.bindings.v20._nsgroup import CI_Series_Type # {http://www.isotc211.org/2005/gmd}CI_Series_Type
-from komle.bindings.v20._nsgroup import AbstractDQ_Result_Type # {http://www.isotc211.org/2005/gmd}AbstractDQ_Result_Type
-from komle.bindings.v20._nsgroup import EX_GeographicExtent_PropertyType # {http://www.isotc211.org/2005/gmd}EX_GeographicExtent_PropertyType
-from komle.bindings.v20._nsgroup import EX_TemporalExtent_PropertyType # {http://www.isotc211.org/2005/gmd}EX_TemporalExtent_PropertyType
-from komle.bindings.v20._nsgroup import EX_VerticalExtent_PropertyType # {http://www.isotc211.org/2005/gmd}EX_VerticalExtent_PropertyType
-from komle.bindings.v20._nsgroup import AbstractDQ_PositionalAccuracy_Type # {http://www.isotc211.org/2005/gmd}AbstractDQ_PositionalAccuracy_Type
-from komle.bindings.v20._nsgroup import MD_Identifier_PropertyType # {http://www.isotc211.org/2005/gmd}MD_Identifier_PropertyType
-from komle.bindings.v20._nsgroup import CI_Citation_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType
-from komle.bindings.v20._nsgroup import CI_Date_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Date_PropertyType
-from komle.bindings.v20._nsgroup import CI_DateTypeCode_PropertyType # {http://www.isotc211.org/2005/gmd}CI_DateTypeCode_PropertyType
-from komle.bindings.v20._nsgroup import CI_ResponsibleParty_PropertyType # {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType
-from komle.bindings.v20._nsgroup import CI_Contact_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Contact_PropertyType
-from komle.bindings.v20._nsgroup import CI_Telephone_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Telephone_PropertyType
-from komle.bindings.v20._nsgroup import CI_Address_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Address_PropertyType
-from komle.bindings.v20._nsgroup import CI_OnlineResource_PropertyType # {http://www.isotc211.org/2005/gmd}CI_OnlineResource_PropertyType
-from komle.bindings.v20._nsgroup import URL_PropertyType # {http://www.isotc211.org/2005/gmd}URL_PropertyType
-from komle.bindings.v20._nsgroup import CI_OnLineFunctionCode_PropertyType # {http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode_PropertyType
-from komle.bindings.v20._nsgroup import CI_RoleCode_PropertyType # {http://www.isotc211.org/2005/gmd}CI_RoleCode_PropertyType
-from komle.bindings.v20._nsgroup import CI_PresentationFormCode_PropertyType # {http://www.isotc211.org/2005/gmd}CI_PresentationFormCode_PropertyType
-from komle.bindings.v20._nsgroup import CI_Series_PropertyType # {http://www.isotc211.org/2005/gmd}CI_Series_PropertyType
-from komle.bindings.v20._nsgroup import DQ_EvaluationMethodTypeCode_PropertyType # {http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode_PropertyType
-from komle.bindings.v20._nsgroup import DQ_Result_PropertyType # {http://www.isotc211.org/2005/gmd}DQ_Result_PropertyType
+
+from komle.bindings.v20._nsgroup import (  # {http://www.isotc211.org/2005/gmd}URL; {http://www.isotc211.org/2005/gmd}CI_DateTypeCode; {http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode; {http://www.isotc211.org/2005/gmd}CI_RoleCode; {http://www.isotc211.org/2005/gmd}CI_PresentationFormCode; {http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode; {http://www.isotc211.org/2005/gmd}EX_Extent; {http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent; {http://www.isotc211.org/2005/gmd}EX_TemporalExtent; {http://www.isotc211.org/2005/gmd}EX_VerticalExtent; {http://www.isotc211.org/2005/gmd}MD_Identifier; {http://www.isotc211.org/2005/gmd}CI_Citation; {http://www.isotc211.org/2005/gmd}CI_Date; {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty; {http://www.isotc211.org/2005/gmd}CI_Contact; {http://www.isotc211.org/2005/gmd}CI_Telephone; {http://www.isotc211.org/2005/gmd}CI_Address; {http://www.isotc211.org/2005/gmd}CI_OnlineResource; {http://www.isotc211.org/2005/gmd}CI_Series; {http://www.isotc211.org/2005/gmd}AbstractDQ_Result; {http://www.isotc211.org/2005/gmd}AbstractDQ_Element; {http://www.isotc211.org/2005/gmd}AbstractDQ_PositionalAccuracy; {http://www.isotc211.org/2005/gmd}EX_Extent_Type; {http://www.isotc211.org/2005/gmd}AbstractEX_GeographicExtent_Type; {http://www.isotc211.org/2005/gmd}EX_TemporalExtent_Type; {http://www.isotc211.org/2005/gmd}EX_VerticalExtent_Type; {http://www.isotc211.org/2005/gmd}AbstractDQ_Element_Type; {http://www.isotc211.org/2005/gmd}MD_Identifier_Type; {http://www.isotc211.org/2005/gmd}CI_Citation_Type; {http://www.isotc211.org/2005/gmd}CI_Date_Type; {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_Type; {http://www.isotc211.org/2005/gmd}CI_Contact_Type; {http://www.isotc211.org/2005/gmd}CI_Telephone_Type; {http://www.isotc211.org/2005/gmd}CI_Address_Type; {http://www.isotc211.org/2005/gmd}CI_OnlineResource_Type; {http://www.isotc211.org/2005/gmd}CI_Series_Type; {http://www.isotc211.org/2005/gmd}AbstractDQ_Result_Type; {http://www.isotc211.org/2005/gmd}EX_GeographicExtent_PropertyType; {http://www.isotc211.org/2005/gmd}EX_TemporalExtent_PropertyType; {http://www.isotc211.org/2005/gmd}EX_VerticalExtent_PropertyType; {http://www.isotc211.org/2005/gmd}AbstractDQ_PositionalAccuracy_Type; {http://www.isotc211.org/2005/gmd}MD_Identifier_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Citation_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Date_PropertyType; {http://www.isotc211.org/2005/gmd}CI_DateTypeCode_PropertyType; {http://www.isotc211.org/2005/gmd}CI_ResponsibleParty_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Contact_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Telephone_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Address_PropertyType; {http://www.isotc211.org/2005/gmd}CI_OnlineResource_PropertyType; {http://www.isotc211.org/2005/gmd}URL_PropertyType; {http://www.isotc211.org/2005/gmd}CI_OnLineFunctionCode_PropertyType; {http://www.isotc211.org/2005/gmd}CI_RoleCode_PropertyType; {http://www.isotc211.org/2005/gmd}CI_PresentationFormCode_PropertyType; {http://www.isotc211.org/2005/gmd}CI_Series_PropertyType; {http://www.isotc211.org/2005/gmd}DQ_EvaluationMethodTypeCode_PropertyType; {http://www.isotc211.org/2005/gmd}DQ_Result_PropertyType
+    URL, AbstractDQ_Element, AbstractDQ_Element_Type,
+    AbstractDQ_PositionalAccuracy, AbstractDQ_PositionalAccuracy_Type,
+    AbstractDQ_Result, AbstractDQ_Result_Type, AbstractEX_GeographicExtent,
+    AbstractEX_GeographicExtent_Type, CI_Address, CI_Address_PropertyType,
+    CI_Address_Type, CI_Citation, CI_Citation_PropertyType, CI_Citation_Type,
+    CI_Contact, CI_Contact_PropertyType, CI_Contact_Type, CI_Date,
+    CI_Date_PropertyType, CI_Date_Type, CI_DateTypeCode,
+    CI_DateTypeCode_PropertyType, CI_OnLineFunctionCode,
+    CI_OnLineFunctionCode_PropertyType, CI_OnlineResource,
+    CI_OnlineResource_PropertyType, CI_OnlineResource_Type,
+    CI_PresentationFormCode, CI_PresentationFormCode_PropertyType,
+    CI_ResponsibleParty, CI_ResponsibleParty_PropertyType,
+    CI_ResponsibleParty_Type, CI_RoleCode, CI_RoleCode_PropertyType, CI_Series,
+    CI_Series_PropertyType, CI_Series_Type, CI_Telephone,
+    CI_Telephone_PropertyType, CI_Telephone_Type, DQ_EvaluationMethodTypeCode,
+    DQ_EvaluationMethodTypeCode_PropertyType, DQ_Result_PropertyType,
+    EX_Extent, EX_Extent_Type, EX_GeographicExtent_PropertyType,
+    EX_TemporalExtent, EX_TemporalExtent_PropertyType, EX_TemporalExtent_Type,
+    EX_VerticalExtent, EX_VerticalExtent_PropertyType, EX_VerticalExtent_Type,
+    MD_Identifier, MD_Identifier_PropertyType, MD_Identifier_Type,
+    URL_PropertyType)
