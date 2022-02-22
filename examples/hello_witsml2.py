@@ -1,22 +1,26 @@
-'''A small witsml python example
+"""A small witsml python example
 
-Should be possible to run each cell denoted by #%% in vscode or atom(using hydrogen), 
+Should be possible to run each cell denoted by #%% in vscode or atom(using hydrogen),
 or just run it using python3
-'''
+"""
 
 
 #%%
 
 import os
+
+import pandas as pd  # Not included in komle setup.py
+
+from komle import utils as ku
 from komle.bindings.v20 import witsml
 from komle.uom_converter import conversion_factor, get_unit
-from komle import utils as ku
-import pandas as pd # Not included in komle setup.py
 
-sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
+sample_path = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), "..", "tests", "samples"
+)
 
 #%% Open a Trajectory and unmarshall it
- 
+
 with open(os.path.join(sample_path, 'Trajectory.xml'), 'r') as mud_file:
     traj = witsml.CreateFromDocument(mud_file.read())
 
