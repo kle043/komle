@@ -20,8 +20,8 @@ class RequestsTransport(HttpAuthenticated):
     def __init__(self, **kwargs):
         self.verify = kwargs.pop('verify', None)
         self.auth = (
-            kwargs.pop('username', None),
-            kwargs.pop('password', None),
+            kwargs.pop("username", None),
+            kwargs.pop("password", None),
         )
         HttpAuthenticated.__init__(self, **kwargs)
 
@@ -42,7 +42,7 @@ def simple_client(
     service_url: str,
     username: str,
     password: str,
-    agent_name: str = 'komle',
+    agent_name: str = "komle",
     verify: Union[bool, str] = True,
 ) -> Client:
     """Create a simple soap client using Suds,
@@ -60,16 +60,14 @@ def simple_client(
         client (Client): A suds client with wsdl
     """
 
-    transport = RequestsTransport(
-        username=username, password=password, verify=verify
-    )
+    transport = RequestsTransport(username=username, password=password, verify=verify)
 
     client = Client(
         f'file:{os.path.join(os.path.dirname(__file__), "WMLS.WSDL")}',
         location=service_url,
     )
 
-    client.set_options(transport=transport, headers={'User-Agent': agent_name})
+    client.set_options(transport=transport, headers={"User-Agent": agent_name})
 
     return client
 
@@ -93,7 +91,7 @@ class StoreClient:
         service_url: str,
         username: str,
         password: str,
-        agent_name: str = 'komle',
+        agent_name: str = "komle",
         verify: Union[bool, str] = True,
     ):
         """Create a GetFromStore client,
@@ -113,7 +111,7 @@ class StoreClient:
         )
 
     def get_bhaRuns(
-        self, q_bha: witsml.obj_bhaRun, returnElements: str = 'id-only'
+        self, q_bha: witsml.obj_bhaRun, returnElements: str = "id-only"
     ) -> witsml.bhaRuns:
         """Get bhaRuns from a witsml store server
 
@@ -137,15 +135,15 @@ class StoreClient:
         q_bhas.append(q_bha)
 
         reply_bhas = self.soap_client.service.WMLS_GetFromStore(
-            'bhaRun',
+            "bhaRun",
             q_bhas.toxml(),
-            OptionsIn=f'returnElements={returnElements}',
+            OptionsIn=f"returnElements={returnElements}",
         )
 
         return _parse_reply(reply_bhas)
 
     def get_logs(
-        self, q_log: witsml.obj_log, returnElements: str = 'id-only'
+        self, q_log: witsml.obj_log, returnElements: str = "id-only"
     ) -> witsml.logs:
         """Get logs from a witsml store server
 
@@ -170,13 +168,13 @@ class StoreClient:
         q_logs.append(q_log)
 
         reply_logs = self.soap_client.service.WMLS_GetFromStore(
-            'log', q_logs.toxml(), OptionsIn=f'returnElements={returnElements}'
+            "log", q_logs.toxml(), OptionsIn=f"returnElements={returnElements}"
         )
 
         return _parse_reply(reply_logs)
 
     def get_mudLogs(
-        self, q_mudlog: witsml.obj_mudLog, returnElements: str = 'id-only'
+        self, q_mudlog: witsml.obj_mudLog, returnElements: str = "id-only"
     ) -> witsml.mudLogs:
         """Get mudLogs from a witsml store server
 
@@ -201,15 +199,15 @@ class StoreClient:
         q_mudlogs.append(q_mudlog)
 
         reply_mudlogs = self.soap_client.service.WMLS_GetFromStore(
-            'mudLog',
+            "mudLog",
             q_mudlogs.toxml(),
-            OptionsIn=f'returnElements={returnElements}',
+            OptionsIn=f"returnElements={returnElements}",
         )
 
         return _parse_reply(reply_mudlogs)
 
     def get_trajectorys(
-        self, q_traj: witsml.obj_trajectory, returnElements: str = 'id-only'
+        self, q_traj: witsml.obj_trajectory, returnElements: str = "id-only"
     ) -> witsml.trajectorys:
         """Get trajectorys from a witsml store server
 
@@ -233,15 +231,15 @@ class StoreClient:
         q_trajs.append(q_traj)
 
         reply_traj = self.soap_client.service.WMLS_GetFromStore(
-            'trajectory',
+            "trajectory",
             q_trajs.toxml(),
-            OptionsIn=f'returnElements={returnElements}',
+            OptionsIn=f"returnElements={returnElements}",
         )
 
         return _parse_reply(reply_traj)
 
     def get_wellbores(
-        self, q_wellbore: witsml.obj_wellbore, returnElements: str = 'id-only'
+        self, q_wellbore: witsml.obj_wellbore, returnElements: str = "id-only"
     ) -> witsml.wellbores:
         """Get wellbores from a witsml store server
 
@@ -265,9 +263,9 @@ class StoreClient:
         q_wellbores.append(q_wellbore)
 
         reply_wellbores = self.soap_client.service.WMLS_GetFromStore(
-            'wellbore',
+            "wellbore",
             q_wellbores.toxml(),
-            OptionsIn=f'returnElements={returnElements}',
+            OptionsIn=f"returnElements={returnElements}",
         )
 
         return _parse_reply(reply_wellbores)
