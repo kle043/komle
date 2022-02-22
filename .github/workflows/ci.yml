@@ -33,6 +33,7 @@ on:
     - name: Lint with darker
       run: | 
         poetry run darker --check --isort .
+        poetry run pydocstyle .
 
     - name: Test with pytest
       run: |
