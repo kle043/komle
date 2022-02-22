@@ -4,7 +4,7 @@ from typing import Union
 from komle.bindings import uom
 
 with open(
-    os.path.join(os.path.dirname(__file__), 'witsmlUnitDict.xml'), 'r'
+    os.path.join(os.path.dirname(__file__), "witsmlUnitDict.xml"), "r"
 ) as uom_file:
     WITSM_UNIT_DICT = uom.CreateFromDocument(uom_file.read())
 
@@ -57,7 +57,7 @@ def conversion_factor(source_uom: str, target_uom: str) -> float:
             break
 
     if source_unit is None or target_unit is None:
-        raise KeyError('Unit not found')
+        raise KeyError("Unit not found")
 
     source_factor = __get_factor(source_unit)
     target_factor = __get_factor(target_unit)
