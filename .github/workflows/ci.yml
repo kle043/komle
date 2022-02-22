@@ -9,37 +9,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-  steps:
-    - name: Make checkout 
-      uses: actions/checkout@v2
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.10"
+    steps:
+      - name: Make checkout 
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
 
-    - name: Install poetry
-      users: Gr1N/setup-poetry@v7
+      - name: Install poetry
+        users: Gr1N/setup-poetry@v7
 
-    - name: Install dependencies
-      run: |
-        poetry run python -m pip install --upgrade pip
-        poetry run pip install -U pip setuptools
-        poetry install
+      - name: Install dependencies
+        run: |
+          poetry run python -m pip install --upgrade pip
+          poetry run pip install -U pip setuptools
+          poetry install
 
-    - name: Install komle 0.3
-      run: |
-        poetry run pip install -U .
+      - name: Install komle 0.3
+        run: |
+          poetry run pip install -U .
 
-    - name: Lint with darker
-      run: | 
-        poetry run darker --check --isort .
-        poetry run pydocstyle .
+      - name: Lint with darker
+        run: | 
+          poetry run darker --check --isort .
+          poetry run pydocstyle .
 
-    - name: Test with pytest
-      run: |
-        poetry run pytest -v
-    
-    - name: Audit security with pip-audit
-      run: |
-        poetry run pip-audit
+      - name: Test with pytest
+        run: |
+          poetry run pytest -v
+      
+      - name: Audit security with pip-audit
+        run: |
+          poetry run pip-audit
         
