@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "komle"
+version = "0.3.0"
+description = ""
+authors = ["Hemerson Rafael <rafaelpontes1995@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+setuptools = "^60.9.3"
+suds-py3 = "^1.4.5"
+PyXB = "^1.2.6"
+pytest = "^7.0.1"
+pandas = "^1.4.1"
+lxml = "^4.8.0"
+
+[tool.poetry.dev-dependencies]
+blue = "^0.7.0"
+isort = "^5.10.1"
+pytest = "^7.0.1"
+pip-audit = "^2.0.0"
+prospector = "^1.6.0"
+darker = "^1.4.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
