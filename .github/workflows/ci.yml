@@ -24,6 +24,62 @@ jobs:
       - name: Install komle 0.3
         run: |
           poetry run pip install -U .
-      - name: Lint with darker
+  Lint:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install poetry
+        uses: Gr1N/setup-poetry@v7
+      - name: Install dependencies
         run: |
-        
+          poetry install
+      - name: Lint with darker
+        run: | 
+          poetry run darker --check --isort .
+          poetry run pydocstyle .
+  test:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install poetry
+        uses: Gr1N/setup-poetry@v7
+      - name: Install dependencies
+        run: |
+          poetry run python -m pip install --upgrade pip
+          poetry run pip install -U pip setuptools
+          poetry install
+      - name: Install komle 0.3
+        run: |
+          poetry run pip install -U .
+      - name: Test with pytest
+        run: |
+          poetry run pytest -v
+  sec:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install poetry
+        uses: Gr1N/setup-poetry@v7
+      - name: Install dependencies
+        run: |
+          poetry run python -m pip install --upgrade pip
+          poetry run pip install -U pip setuptools
+          poetry install
+      - name: Audit security with pip-audit
+        run: |
+          poetry run pip-audit
