@@ -1,6 +1,10 @@
-# komle
+# Komle Plus
 
-komle, a python library for WITSML, uses [PyXB](http://pyxb.sourceforge.net/) to marshal/unmarshal xml files according to the schemas. 
+komle-plus is fork from [komle](https://github.com/kle043/komle), a python library for WITSML, uses [PyXB-E](https://github.com/renalreg/PyXB-X) to marshal/unmarshal xml files according to the schemas.
+
+What is this fork for?:
+
+At work I use some closed source tools that use Komle - some of which I keep. This repository has the necessary patches for komle to work for me. Intend to have a published copy of PyPI available and an automated test pipeline.
 
 Some of the features are:
 
@@ -13,16 +17,20 @@ Some of the features are:
 * Support for the generated write schemas, to be used for WMLS_AddToStore
     - **Note** that write_bindings can not be imported at the same time as read_bindings. See below for details.
 
-## Install
+## Instalation
+### Pre-requisites:
+    - [poetry >= 1.0] (https://python-poetry.org/docs/managing-environments/)
+    - [python >= 3.9] (https://www.python.org/)
+    - [GNU Make >= 4.3] (https://www.gnu.org/software/make/)
 
 ``` bash
-pip3 install git+ssh://git@github.com/kle043/komle.git
+git clone https://github.com/HemersonRafael/komle-plus
 ```
 
-Or if the repo is cloned
+if the repo is cloned
 
 ``` bash
-pip3 install -U .
+make install
 ```
 
 ## Getting started

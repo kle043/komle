@@ -12,6 +12,7 @@ format:
 	@poetry run blue .
 	@poetry run isort .
 	@poetry run pydocstyle .
+	@poetry run prospector
 lint:
 	@poetry run darker --check --isort .
 test:

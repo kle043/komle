@@ -15,7 +15,8 @@ setup(
     },
     install_requires=[
         "suds-py3>=1.4.5",
-        "PyXB>=1.2.6",
+        "PyXB-X>=1.2.6",
     ],
     tests_require=["pytest>=7.0.1"],
+    python_requires='>=3.9'
 )
