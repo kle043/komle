@@ -18,5 +18,5 @@ setup(
         "PyXB-X>=1.2.6",
     ],
     tests_require=["pytest>=7.0.1"],
-    python_requires='>=3.9'
+    python_requires=">=3.9",
 )

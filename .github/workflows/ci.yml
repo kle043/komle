@@ -21,10 +21,10 @@ jobs:
           poetry run python -m pip install --upgrade pip
           poetry run pip install -U pip setuptools
           poetry install
-      - name: Install komle 0.3
+      - name: Install komle Plus 0.3
         run: |
           poetry run pip install -U .
-  Lint:
+  lint:
     runs-on: ubuntu-latest 
     steps:
       - name: Check out repository code
@@ -41,7 +41,6 @@ jobs:
       - name: Lint with darker
         run: | 
           poetry run darker --check --isort .
-          poetry run pydocstyle .
   test:
     runs-on: ubuntu-latest 
     steps:
@@ -58,7 +57,7 @@ jobs:
           poetry run python -m pip install --upgrade pip
           poetry run pip install -U pip setuptools
           poetry install
-      - name: Install komle 0.3
+      - name: Install komle Plus 0.3
         run: |
           poetry run pip install -U .
       - name: Test with pytest
