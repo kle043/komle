@@ -5,14 +5,17 @@
 # Namespace http://www.energistics.org/energyml/data/commonv2 [xmlns:eml]
 
 from __future__ import unicode_literals
+
+import io
+import sys
+
 import pyxb
 import pyxb.binding
 import pyxb.binding.saxer
-import io
-import pyxb.utils.utility
 import pyxb.utils.domutils
-import sys
 import pyxb.utils.six as _six
+import pyxb.utils.utility
+
 # Unique identifier for bindings created at the same time
 _GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:52e853d8-8ebe-11ea-ae29-f507f064c4f5')
 
@@ -28,6 +31,7 @@ _module_typeBindings = pyxb.utils.utility.Object()
 
 # Import bindings for namespaces imported into schema
 import pyxb.binding.datatypes
+
 import komle.bindings.v20._nsgroup as _ImportedBinding_bindings_v20__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding

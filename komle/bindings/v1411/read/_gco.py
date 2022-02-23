@@ -5,16 +5,21 @@
 # Namespace http://www.isotc211.org/2005/gco [xmlns:gco]
 
 from __future__ import unicode_literals
+
+import io
+import sys
+
 import pyxb
 import pyxb.binding
 import pyxb.binding.saxer
-import io
-import pyxb.utils.utility
 import pyxb.utils.domutils
-import sys
 import pyxb.utils.six as _six
+import pyxb.utils.utility
+
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:c6f994fc-8eba-11ea-ae29-f507f064c4f5')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier(
+    "urn:uuid:c6f994fc-8eba-11ea-ae29-f507f064c4f5"
+)
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -30,10 +35,13 @@ _module_typeBindings = pyxb.utils.utility.Object()
 import komle.bindings.v1411.read._nsgroup as _ImportedBinding_bindings_v1411_read__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding
-Namespace = pyxb.namespace.NamespaceForURI('http://www.isotc211.org/2005/gco', create_if_missing=True)
+Namespace = pyxb.namespace.NamespaceForURI(
+    "http://www.isotc211.org/2005/gco", create_if_missing=True
+)
 Namespace.configureCategories(['typeBinding', 'elementBinding'])
 
-def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
+
+def CreateFromDocument(xml_text, default_namespace=None, location_base=None):
     """Parse the given XML and use the document element to create a
     Python instance.
 
@@ -57,7 +65,9 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
         return CreateFromDOM(dom.documentElement, default_namespace=default_namespace)
     if default_namespace is None:
         default_namespace = Namespace.fallbackNamespace()
-    saxer = pyxb.binding.saxer.make_parser(fallback_namespace=default_namespace, location_base=location_base)
+    saxer = pyxb.binding.saxer.make_parser(
+        fallback_namespace=default_namespace, location_base=location_base
+    )
     handler = saxer.getContentHandler()
     xmld = xml_text
     if isinstance(xmld, _six.text_type):
@@ -66,7 +76,8 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
     instance = handler.rootObject()
     return instance
 
-def CreateFromDOM (node, default_namespace=None):
+
+def CreateFromDOM(node, default_namespace=None):
     """Create a Python instance from the given DOM node.
     The node tag must correspond to an element declaration in this module.
 
@@ -75,70 +86,77 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.bindings.v1411.read._nsgroup import CharacterString # {http://www.isotc211.org/2005/gco}CharacterString
-from komle.bindings.v1411.read._nsgroup import Boolean # {http://www.isotc211.org/2005/gco}Boolean
-from komle.bindings.v1411.read._nsgroup import DateTime # {http://www.isotc211.org/2005/gco}DateTime
-from komle.bindings.v1411.read._nsgroup import Decimal # {http://www.isotc211.org/2005/gco}Decimal
-from komle.bindings.v1411.read._nsgroup import Real # {http://www.isotc211.org/2005/gco}Real
-from komle.bindings.v1411.read._nsgroup import Integer # {http://www.isotc211.org/2005/gco}Integer
-from komle.bindings.v1411.read._nsgroup import Record # {http://www.isotc211.org/2005/gco}Record
-from komle.bindings.v1411.read._nsgroup import AbstractGenericName # {http://www.isotc211.org/2005/gco}AbstractGenericName
-from komle.bindings.v1411.read._nsgroup import LocalName # {http://www.isotc211.org/2005/gco}LocalName
-from komle.bindings.v1411.read._nsgroup import ScopedName # {http://www.isotc211.org/2005/gco}ScopedName
-from komle.bindings.v1411.read._nsgroup import Date # {http://www.isotc211.org/2005/gco}Date
-from komle.bindings.v1411.read._nsgroup import UnlimitedInteger # {http://www.isotc211.org/2005/gco}UnlimitedInteger
-from komle.bindings.v1411.read._nsgroup import Binary # {http://www.isotc211.org/2005/gco}Binary
-from komle.bindings.v1411.read._nsgroup import AbstractObject_ as AbstractObject # {http://www.isotc211.org/2005/gco}AbstractObject
-from komle.bindings.v1411.read._nsgroup import TypeName # {http://www.isotc211.org/2005/gco}TypeName
-from komle.bindings.v1411.read._nsgroup import MemberName # {http://www.isotc211.org/2005/gco}MemberName
-from komle.bindings.v1411.read._nsgroup import Multiplicity # {http://www.isotc211.org/2005/gco}Multiplicity
-from komle.bindings.v1411.read._nsgroup import MultiplicityRange # {http://www.isotc211.org/2005/gco}MultiplicityRange
-from komle.bindings.v1411.read._nsgroup import RecordType # {http://www.isotc211.org/2005/gco}RecordType
-from komle.bindings.v1411.read._nsgroup import Measure # {http://www.isotc211.org/2005/gco}Measure
-from komle.bindings.v1411.read._nsgroup import Length # {http://www.isotc211.org/2005/gco}Length
-from komle.bindings.v1411.read._nsgroup import Angle # {http://www.isotc211.org/2005/gco}Angle
-from komle.bindings.v1411.read._nsgroup import Scale # {http://www.isotc211.org/2005/gco}Scale
-from komle.bindings.v1411.read._nsgroup import Distance # {http://www.isotc211.org/2005/gco}Distance
-from komle.bindings.v1411.read._nsgroup import Date_Type # {http://www.isotc211.org/2005/gco}Date_Type
-from komle.bindings.v1411.read._nsgroup import UnlimitedInteger_Type # {http://www.isotc211.org/2005/gco}UnlimitedInteger_Type
-from komle.bindings.v1411.read._nsgroup import Binary_Type # {http://www.isotc211.org/2005/gco}Binary_Type
-from komle.bindings.v1411.read._nsgroup import AbstractObject_Type # {http://www.isotc211.org/2005/gco}AbstractObject_Type
-from komle.bindings.v1411.read._nsgroup import CodeListValue_Type # {http://www.isotc211.org/2005/gco}CodeListValue_Type
-from komle.bindings.v1411.read._nsgroup import TypeName_Type # {http://www.isotc211.org/2005/gco}TypeName_Type
-from komle.bindings.v1411.read._nsgroup import MemberName_Type # {http://www.isotc211.org/2005/gco}MemberName_Type
-from komle.bindings.v1411.read._nsgroup import Multiplicity_Type # {http://www.isotc211.org/2005/gco}Multiplicity_Type
-from komle.bindings.v1411.read._nsgroup import MultiplicityRange_Type # {http://www.isotc211.org/2005/gco}MultiplicityRange_Type
-from komle.bindings.v1411.read._nsgroup import RecordType_Type # {http://www.isotc211.org/2005/gco}RecordType_Type
-from komle.bindings.v1411.read._nsgroup import TypeName_PropertyType # {http://www.isotc211.org/2005/gco}TypeName_PropertyType
-from komle.bindings.v1411.read._nsgroup import MemberName_PropertyType # {http://www.isotc211.org/2005/gco}MemberName_PropertyType
-from komle.bindings.v1411.read._nsgroup import Multiplicity_PropertyType # {http://www.isotc211.org/2005/gco}Multiplicity_PropertyType
-from komle.bindings.v1411.read._nsgroup import MultiplicityRange_PropertyType # {http://www.isotc211.org/2005/gco}MultiplicityRange_PropertyType
-from komle.bindings.v1411.read._nsgroup import Measure_PropertyType # {http://www.isotc211.org/2005/gco}Measure_PropertyType
-from komle.bindings.v1411.read._nsgroup import Length_PropertyType # {http://www.isotc211.org/2005/gco}Length_PropertyType
-from komle.bindings.v1411.read._nsgroup import Angle_PropertyType # {http://www.isotc211.org/2005/gco}Angle_PropertyType
-from komle.bindings.v1411.read._nsgroup import Scale_PropertyType # {http://www.isotc211.org/2005/gco}Scale_PropertyType
-from komle.bindings.v1411.read._nsgroup import Distance_PropertyType # {http://www.isotc211.org/2005/gco}Distance_PropertyType
-from komle.bindings.v1411.read._nsgroup import CharacterString_PropertyType # {http://www.isotc211.org/2005/gco}CharacterString_PropertyType
-from komle.bindings.v1411.read._nsgroup import Boolean_PropertyType # {http://www.isotc211.org/2005/gco}Boolean_PropertyType
-from komle.bindings.v1411.read._nsgroup import GenericName_PropertyType # {http://www.isotc211.org/2005/gco}GenericName_PropertyType
-from komle.bindings.v1411.read._nsgroup import LocalName_PropertyType # {http://www.isotc211.org/2005/gco}LocalName_PropertyType
-from komle.bindings.v1411.read._nsgroup import ScopedName_PropertyType # {http://www.isotc211.org/2005/gco}ScopedName_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomAngle_PropertyType # {http://www.isotc211.org/2005/gco}UomAngle_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomLength_PropertyType # {http://www.isotc211.org/2005/gco}UomLength_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomScale_PropertyType # {http://www.isotc211.org/2005/gco}UomScale_PropertyType
-from komle.bindings.v1411.read._nsgroup import UnitOfMeasure_PropertyType # {http://www.isotc211.org/2005/gco}UnitOfMeasure_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomArea_PropertyType # {http://www.isotc211.org/2005/gco}UomArea_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomVelocity_PropertyType # {http://www.isotc211.org/2005/gco}UomVelocity_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomTime_PropertyType # {http://www.isotc211.org/2005/gco}UomTime_PropertyType
-from komle.bindings.v1411.read._nsgroup import UomVolume_PropertyType # {http://www.isotc211.org/2005/gco}UomVolume_PropertyType
-from komle.bindings.v1411.read._nsgroup import DateTime_PropertyType # {http://www.isotc211.org/2005/gco}DateTime_PropertyType
-from komle.bindings.v1411.read._nsgroup import Date_PropertyType # {http://www.isotc211.org/2005/gco}Date_PropertyType
-from komle.bindings.v1411.read._nsgroup import Number_PropertyType # {http://www.isotc211.org/2005/gco}Number_PropertyType
-from komle.bindings.v1411.read._nsgroup import Decimal_PropertyType # {http://www.isotc211.org/2005/gco}Decimal_PropertyType
-from komle.bindings.v1411.read._nsgroup import Real_PropertyType # {http://www.isotc211.org/2005/gco}Real_PropertyType
-from komle.bindings.v1411.read._nsgroup import Integer_PropertyType # {http://www.isotc211.org/2005/gco}Integer_PropertyType
-from komle.bindings.v1411.read._nsgroup import UnlimitedInteger_PropertyType # {http://www.isotc211.org/2005/gco}UnlimitedInteger_PropertyType
-from komle.bindings.v1411.read._nsgroup import Record_PropertyType # {http://www.isotc211.org/2005/gco}Record_PropertyType
-from komle.bindings.v1411.read._nsgroup import RecordType_PropertyType # {http://www.isotc211.org/2005/gco}RecordType_PropertyType
-from komle.bindings.v1411.read._nsgroup import Binary_PropertyType # {http://www.isotc211.org/2005/gco}Binary_PropertyType
-from komle.bindings.v1411.read._nsgroup import ObjectReference_PropertyType # {http://www.isotc211.org/2005/gco}ObjectReference_PropertyType
+
+from komle.bindings.v1411.read._nsgroup import (
+    AbstractGenericName,
+)  # {http://www.isotc211.org/2005/gco}CharacterString; {http://www.isotc211.org/2005/gco}Boolean; {http://www.isotc211.org/2005/gco}DateTime; {http://www.isotc211.org/2005/gco}Decimal; {http://www.isotc211.org/2005/gco}Real; {http://www.isotc211.org/2005/gco}Integer; {http://www.isotc211.org/2005/gco}Record; {http://www.isotc211.org/2005/gco}AbstractGenericName; {http://www.isotc211.org/2005/gco}LocalName; {http://www.isotc211.org/2005/gco}ScopedName; {http://www.isotc211.org/2005/gco}Date; {http://www.isotc211.org/2005/gco}UnlimitedInteger; {http://www.isotc211.org/2005/gco}Binary; {http://www.isotc211.org/2005/gco}TypeName; {http://www.isotc211.org/2005/gco}MemberName; {http://www.isotc211.org/2005/gco}Multiplicity; {http://www.isotc211.org/2005/gco}MultiplicityRange; {http://www.isotc211.org/2005/gco}RecordType; {http://www.isotc211.org/2005/gco}Measure; {http://www.isotc211.org/2005/gco}Length; {http://www.isotc211.org/2005/gco}Angle; {http://www.isotc211.org/2005/gco}Scale; {http://www.isotc211.org/2005/gco}Distance; {http://www.isotc211.org/2005/gco}Date_Type; {http://www.isotc211.org/2005/gco}UnlimitedInteger_Type; {http://www.isotc211.org/2005/gco}Binary_Type; {http://www.isotc211.org/2005/gco}AbstractObject_Type; {http://www.isotc211.org/2005/gco}CodeListValue_Type; {http://www.isotc211.org/2005/gco}TypeName_Type; {http://www.isotc211.org/2005/gco}MemberName_Type; {http://www.isotc211.org/2005/gco}Multiplicity_Type; {http://www.isotc211.org/2005/gco}MultiplicityRange_Type; {http://www.isotc211.org/2005/gco}RecordType_Type; {http://www.isotc211.org/2005/gco}TypeName_PropertyType; {http://www.isotc211.org/2005/gco}MemberName_PropertyType; {http://www.isotc211.org/2005/gco}Multiplicity_PropertyType; {http://www.isotc211.org/2005/gco}MultiplicityRange_PropertyType; {http://www.isotc211.org/2005/gco}Measure_PropertyType; {http://www.isotc211.org/2005/gco}Length_PropertyType; {http://www.isotc211.org/2005/gco}Angle_PropertyType; {http://www.isotc211.org/2005/gco}Scale_PropertyType; {http://www.isotc211.org/2005/gco}Distance_PropertyType; {http://www.isotc211.org/2005/gco}CharacterString_PropertyType; {http://www.isotc211.org/2005/gco}Boolean_PropertyType; {http://www.isotc211.org/2005/gco}GenericName_PropertyType; {http://www.isotc211.org/2005/gco}LocalName_PropertyType; {http://www.isotc211.org/2005/gco}ScopedName_PropertyType; {http://www.isotc211.org/2005/gco}UomAngle_PropertyType; {http://www.isotc211.org/2005/gco}UomLength_PropertyType; {http://www.isotc211.org/2005/gco}UomScale_PropertyType; {http://www.isotc211.org/2005/gco}UnitOfMeasure_PropertyType; {http://www.isotc211.org/2005/gco}UomArea_PropertyType; {http://www.isotc211.org/2005/gco}UomVelocity_PropertyType; {http://www.isotc211.org/2005/gco}UomTime_PropertyType; {http://www.isotc211.org/2005/gco}UomVolume_PropertyType; {http://www.isotc211.org/2005/gco}DateTime_PropertyType; {http://www.isotc211.org/2005/gco}Date_PropertyType; {http://www.isotc211.org/2005/gco}Number_PropertyType; {http://www.isotc211.org/2005/gco}Decimal_PropertyType; {http://www.isotc211.org/2005/gco}Real_PropertyType; {http://www.isotc211.org/2005/gco}Integer_PropertyType; {http://www.isotc211.org/2005/gco}UnlimitedInteger_PropertyType; {http://www.isotc211.org/2005/gco}Record_PropertyType; {http://www.isotc211.org/2005/gco}RecordType_PropertyType; {http://www.isotc211.org/2005/gco}Binary_PropertyType; {http://www.isotc211.org/2005/gco}ObjectReference_PropertyType
+from komle.bindings.v1411.read._nsgroup import (
+    AbstractObject_ as AbstractObject,
+)  # {http://www.isotc211.org/2005/gco}AbstractObject
+from komle.bindings.v1411.read._nsgroup import (  # {http://www.isotc211.org/2005/gco}CharacterString; {http://www.isotc211.org/2005/gco}Boolean; {http://www.isotc211.org/2005/gco}DateTime; {http://www.isotc211.org/2005/gco}Decimal; {http://www.isotc211.org/2005/gco}Real; {http://www.isotc211.org/2005/gco}Integer; {http://www.isotc211.org/2005/gco}Record; {http://www.isotc211.org/2005/gco}AbstractGenericName; {http://www.isotc211.org/2005/gco}LocalName; {http://www.isotc211.org/2005/gco}ScopedName; {http://www.isotc211.org/2005/gco}Date; {http://www.isotc211.org/2005/gco}UnlimitedInteger; {http://www.isotc211.org/2005/gco}Binary; {http://www.isotc211.org/2005/gco}TypeName; {http://www.isotc211.org/2005/gco}MemberName; {http://www.isotc211.org/2005/gco}Multiplicity; {http://www.isotc211.org/2005/gco}MultiplicityRange; {http://www.isotc211.org/2005/gco}RecordType; {http://www.isotc211.org/2005/gco}Measure; {http://www.isotc211.org/2005/gco}Length; {http://www.isotc211.org/2005/gco}Angle; {http://www.isotc211.org/2005/gco}Scale; {http://www.isotc211.org/2005/gco}Distance; {http://www.isotc211.org/2005/gco}Date_Type; {http://www.isotc211.org/2005/gco}UnlimitedInteger_Type; {http://www.isotc211.org/2005/gco}Binary_Type; {http://www.isotc211.org/2005/gco}AbstractObject_Type; {http://www.isotc211.org/2005/gco}CodeListValue_Type; {http://www.isotc211.org/2005/gco}TypeName_Type; {http://www.isotc211.org/2005/gco}MemberName_Type; {http://www.isotc211.org/2005/gco}Multiplicity_Type; {http://www.isotc211.org/2005/gco}MultiplicityRange_Type; {http://www.isotc211.org/2005/gco}RecordType_Type; {http://www.isotc211.org/2005/gco}TypeName_PropertyType; {http://www.isotc211.org/2005/gco}MemberName_PropertyType; {http://www.isotc211.org/2005/gco}Multiplicity_PropertyType; {http://www.isotc211.org/2005/gco}MultiplicityRange_PropertyType; {http://www.isotc211.org/2005/gco}Measure_PropertyType; {http://www.isotc211.org/2005/gco}Length_PropertyType; {http://www.isotc211.org/2005/gco}Angle_PropertyType; {http://www.isotc211.org/2005/gco}Scale_PropertyType; {http://www.isotc211.org/2005/gco}Distance_PropertyType; {http://www.isotc211.org/2005/gco}CharacterString_PropertyType; {http://www.isotc211.org/2005/gco}Boolean_PropertyType; {http://www.isotc211.org/2005/gco}GenericName_PropertyType; {http://www.isotc211.org/2005/gco}LocalName_PropertyType; {http://www.isotc211.org/2005/gco}ScopedName_PropertyType; {http://www.isotc211.org/2005/gco}UomAngle_PropertyType; {http://www.isotc211.org/2005/gco}UomLength_PropertyType; {http://www.isotc211.org/2005/gco}UomScale_PropertyType; {http://www.isotc211.org/2005/gco}UnitOfMeasure_PropertyType; {http://www.isotc211.org/2005/gco}UomArea_PropertyType; {http://www.isotc211.org/2005/gco}UomVelocity_PropertyType; {http://www.isotc211.org/2005/gco}UomTime_PropertyType; {http://www.isotc211.org/2005/gco}UomVolume_PropertyType; {http://www.isotc211.org/2005/gco}DateTime_PropertyType; {http://www.isotc211.org/2005/gco}Date_PropertyType; {http://www.isotc211.org/2005/gco}Number_PropertyType; {http://www.isotc211.org/2005/gco}Decimal_PropertyType; {http://www.isotc211.org/2005/gco}Real_PropertyType; {http://www.isotc211.org/2005/gco}Integer_PropertyType; {http://www.isotc211.org/2005/gco}UnlimitedInteger_PropertyType; {http://www.isotc211.org/2005/gco}Record_PropertyType; {http://www.isotc211.org/2005/gco}RecordType_PropertyType; {http://www.isotc211.org/2005/gco}Binary_PropertyType; {http://www.isotc211.org/2005/gco}ObjectReference_PropertyType
+    AbstractObject_Type,
+    Angle,
+    Angle_PropertyType,
+    Binary,
+    Binary_PropertyType,
+    Binary_Type,
+    Boolean,
+    Boolean_PropertyType,
+    CharacterString,
+    CharacterString_PropertyType,
+    CodeListValue_Type,
+    Date,
+    Date_PropertyType,
+    Date_Type,
+    DateTime,
+    DateTime_PropertyType,
+    Decimal,
+    Decimal_PropertyType,
+    Distance,
+    Distance_PropertyType,
+    GenericName_PropertyType,
+    Integer,
+    Integer_PropertyType,
+    Length,
+    Length_PropertyType,
+    LocalName,
+    LocalName_PropertyType,
+    Measure,
+    Measure_PropertyType,
+    MemberName,
+    MemberName_PropertyType,
+    MemberName_Type,
+    Multiplicity,
+    Multiplicity_PropertyType,
+    Multiplicity_Type,
+    MultiplicityRange,
+    MultiplicityRange_PropertyType,
+    MultiplicityRange_Type,
+    Number_PropertyType,
+    ObjectReference_PropertyType,
+    Real,
+    Real_PropertyType,
+    Record,
+    Record_PropertyType,
+    RecordType,
+    RecordType_PropertyType,
+    RecordType_Type,
+    Scale,
+    Scale_PropertyType,
+    ScopedName,
+    ScopedName_PropertyType,
+    TypeName,
+    TypeName_PropertyType,
+    TypeName_Type,
+    UnitOfMeasure_PropertyType,
+    UnlimitedInteger,
+    UnlimitedInteger_PropertyType,
+    UnlimitedInteger_Type,
+    UomAngle_PropertyType,
+    UomArea_PropertyType,
+    UomLength_PropertyType,
+    UomScale_PropertyType,
+    UomTime_PropertyType,
+    UomVelocity_PropertyType,
+    UomVolume_PropertyType,
+)
