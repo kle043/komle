@@ -1,33 +1,36 @@
-'''A small witsml python example
+"""A small witsml python example
 
-Should be possible to run each cell denoted by #%% in vscode or atom(using hydrogen), 
+Should be possible to run each cell denoted by #%% in vscode or atom(using hydrogen),
 or just run it using python3
-'''
+"""
 
 
 #%%
 
 import os
 
+import pandas as pd  # Not included in komle setup.py
 import pyxb
+from lxml import etree
+
+from komle import utils as ku
 from komle.bindings.v1411.read import witsml
 from komle.soap_client import StoreClient
 from komle.uom_converter import conversion_factor, get_unit
-from komle import utils as ku
-import pandas as pd # Not included in komle setup.py
-from lxml import etree
 
-sample_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'tests', 'samples')
+sample_path = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)), "..", "tests", "samples"
+)
 
 #%% Open a mud log and unmarshall it
- 
+
 with open(os.path.join(sample_path, 'mudLog.xml'), 'r') as mud_file:
     mud_logs = witsml.CreateFromDocument(mud_file.read())
 
 # %%
 
 print(mud_logs.mudLog[0].name)
-# it is convenient with a pretty xml 
+# it is convenient with a pretty xml
 ku.pretty_save(mud_logs, 'mudlog.xml')
 
 # %% Take the mudLog, mud_logs is a container for several mudLog
@@ -37,7 +40,7 @@ print(f'nameWellbore = {mud_log.nameWellbore}')
 print(f'Start {mud_log.startMd.value()} {mud_log.startMd.uom}')
 for geo_int in mud_log.geologyInterval:
     # need to call value on leaf nodes with attributes
-    print(f'{geo_int.mdBottom.value()} - {geo_int.mdTop.value()}  {geo_int.mdTop.uom}')
+    print(f"{geo_int.mdBottom.value()} - {geo_int.mdTop.value()}  {geo_int.mdTop.uom}")
     for lit in geo_int.lithology:
         print(f'Lit: {lit.lithPc.value()} {lit.lithPc.uom}')
 
@@ -61,7 +64,7 @@ print(uom.toxml())
 
 # %% Use the witml unit dict binding to convert unit
 feet_factor = conversion_factor(mud_log.startMd.uom, 'ft')
-print(mud_log.startMd.value()*feet_factor)
+print(mud_log.startMd.value() * feet_factor)
 
 #%% Work with log files
 
@@ -107,7 +110,13 @@ pd.DataFrame(curve_dict)
 
 # The default delimiter is ,
 delimiter = ',' if log.dataDelimiter is None else log.dataDelimiter
-unit_dict = {mnem:uom for mnem, uom in zip(log.logData[0].mnemonicList.split(delimiter), log.logData[0].mnemonicList.split(delimiter))}
+unit_dict = {
+    mnem: uom
+    for mnem, uom in zip(
+        log.logData[0].mnemonicList.split(delimiter),
+        log.logData[0].mnemonicList.split(delimiter),
+    )
+}
 print(f'Unit TIME {unit_dict["TIME"]}')
 print([str(t) for t in data_dict['TIME'][0:5]])
 print(f'Unit GS_CFM2CUMDVOL {unit_dict["GS_CFM2CUMDVOL"]}')
@@ -116,7 +125,7 @@ print(f'Type of GS_CFM2CUMDVOL data {type(data_dict["GS_CFM2CUMDVOL"][0])}')
 
 # %% Working with invalid WITSML files
 # PYXB that is used for the bindings will try to validate that a given xml
-# file conforms to the schema. 
+# file conforms to the schema.
 
 try:
     with open(os.path.join(sample_path, 'invalid_log.xml'), 'r') as log_file:
@@ -137,9 +146,11 @@ logs = witsml.CreateFromDocument(etree.tostring(tree))
 # %% Soap client using wsdl
 
 # This will fail if you don't have credentials to a witsml server
-store_client = StoreClient(service_url='https://MY-WITSML-SERVER/store/witsml',
-                           username='myusername',
-                           password='mypassword')
+store_client = StoreClient(
+    service_url="https://MY-WITSML-SERVER/store/witsml",
+    username="myusername",
+    password="mypassword",
+)
 # %%
 
 id_logs = store_client.get_logs(witsml.obj_log())
@@ -155,6 +166,8 @@ ku.pretty_save(full_log, 'log.xml')
 # %%
 
 # You can make a query on for example nameWell, uidWell, nameWellbore etc
-traj_ids_mywell = store_client.get_trajectorys(witsml.obj_trajectory(nameWell='mynameWell'))
+traj_ids_mywell = store_client.get_trajectorys(
+    witsml.obj_trajectory(nameWell="mynameWell")
+)
 
 print([traj.name for traj in traj_ids_mywell.trajectory])

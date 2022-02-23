@@ -5,16 +5,21 @@
 # Namespace http://www.isotc211.org/2005/gss [xmlns:gss]
 
 from __future__ import unicode_literals
+
+import io
+import sys
+
 import pyxb
 import pyxb.binding
 import pyxb.binding.saxer
-import io
-import pyxb.utils.utility
 import pyxb.utils.domutils
-import sys
 import pyxb.utils.six as _six
+import pyxb.utils.utility
+
 # Unique identifier for bindings created at the same time
-_GenerationUID = pyxb.utils.utility.UniqueIdentifier('urn:uuid:23c8451a-8ebc-11ea-ae29-f507f064c4f5')
+_GenerationUID = pyxb.utils.utility.UniqueIdentifier(
+    'urn:uuid:23c8451a-8ebc-11ea-ae29-f507f064c4f5'
+)
 
 # Version of PyXB used to generate the bindings
 _PyXBVersion = '1.2.6'
@@ -30,10 +35,13 @@ _module_typeBindings = pyxb.utils.utility.Object()
 import komle.bindings.v1411.write._nsgroup as _ImportedBinding_bindings_v1411_write__nsgroup
 
 # NOTE: All namespace declarations are reserved within the binding
-Namespace = pyxb.namespace.NamespaceForURI('http://www.isotc211.org/2005/gss', create_if_missing=True)
+Namespace = pyxb.namespace.NamespaceForURI(
+    'http://www.isotc211.org/2005/gss', create_if_missing=True
+)
 Namespace.configureCategories(['typeBinding', 'elementBinding'])
 
-def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
+
+def CreateFromDocument(xml_text, default_namespace=None, location_base=None):
     """Parse the given XML and use the document element to create a
     Python instance.
 
@@ -54,10 +62,14 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
 
     if pyxb.XMLStyle_saxer != pyxb._XMLStyle:
         dom = pyxb.utils.domutils.StringToDOM(xml_text)
-        return CreateFromDOM(dom.documentElement, default_namespace=default_namespace)
+        return CreateFromDOM(
+            dom.documentElement, default_namespace=default_namespace
+        )
     if default_namespace is None:
         default_namespace = Namespace.fallbackNamespace()
-    saxer = pyxb.binding.saxer.make_parser(fallback_namespace=default_namespace, location_base=location_base)
+    saxer = pyxb.binding.saxer.make_parser(
+        fallback_namespace=default_namespace, location_base=location_base
+    )
     handler = saxer.getContentHandler()
     xmld = xml_text
     if isinstance(xmld, _six.text_type):
@@ -66,7 +78,8 @@ def CreateFromDocument (xml_text, default_namespace=None, location_base=None):
     instance = handler.rootObject()
     return instance
 
-def CreateFromDOM (node, default_namespace=None):
+
+def CreateFromDOM(node, default_namespace=None):
     """Create a Python instance from the given DOM node.
     The node tag must correspond to an element declaration in this module.
 
@@ -75,5 +88,6 @@ def CreateFromDOM (node, default_namespace=None):
         default_namespace = Namespace.fallbackNamespace()
     return pyxb.binding.basis.element.AnyCreateFromDOM(node, default_namespace)
 
-from komle.bindings.v1411.write._nsgroup import GM_Point_PropertyType # {http://www.isotc211.org/2005/gss}GM_Point_PropertyType
-from komle.bindings.v1411.write._nsgroup import GM_Object_PropertyType # {http://www.isotc211.org/2005/gss}GM_Object_PropertyType
+
+from komle.bindings.v1411.write._nsgroup import (  # {http://www.isotc211.org/2005/gss}GM_Point_PropertyType; {http://www.isotc211.org/2005/gss}GM_Object_PropertyType
+    GM_Object_PropertyType, GM_Point_PropertyType)
