@@ -17,11 +17,13 @@ Some of the features are:
 * Support for the generated write schemas, to be used for WMLS_AddToStore
     - **Note** that write_bindings can not be imported at the same time as read_bindings. See below for details.
 
-## Instalation
+## Instalation by GitHub
 ### Pre-requisites:
-    - [poetry >= 1.0] (https://python-poetry.org/docs/managing-environments/)
-    - [python >= 3.9] (https://www.python.org/)
-    - [GNU Make >= 4.3] (https://www.gnu.org/software/make/)
+  * [poetry >= 1.0](https://python-poetry.org/docs/managing-environments/)
+
+  * [python >= 3.9](https://www.python.org/)
+
+  * [GNU Make >= 4.3](https://www.gnu.org/software/make/)
 
 ``` bash
 git clone https://github.com/HemersonRafael/komle-plus
@@ -32,7 +34,10 @@ if the repo is cloned
 ``` bash
 make install
 ```
-
+## Instalation by PyPI
+``` bash
+pip install komle-plus
+```
 ## Getting started
 
 ``` bash
