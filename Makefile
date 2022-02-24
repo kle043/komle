@@ -19,3 +19,9 @@ test:
 	@poetry run pytest -v
 sec:
 	@poetry run pip-audit
+build:
+	@poetry run python setup.py sdist bdist_wheel
+upload-pypi:
+	@poetry run python -m twine upload dist/*
+upload-pypitest:
+	@poetry run python -m twine upload --verbose --repository testpypi dist/*
