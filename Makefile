@@ -14,7 +14,8 @@ format:
 	@poetry run pydocstyle .
 	@poetry run prospector
 lint:
-	@poetry run darker --check --isort .
+	@poetry run darker --check .
+	@poetry run darker --isort .
 test:
 	@poetry run pytest -v
 sec:
