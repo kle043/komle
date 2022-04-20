@@ -238,37 +238,18 @@ class StoreClient:
 
         return _parse_reply(reply_traj)
     
-    def get_wells(
-        self, q_well: witsml.obj_well, returnElements: str = "id-only"
-    ) -> witsml.wells:
-        """Get wells from a witsml store server
+    def get_version(self) -> list:
+        """Get version from a witsml store server
 
-        The default is only to return id-only, change to all when you know what well to get.
-
-
-        Args:
-            q_well (witsml.obj_well): A query well specifing objects to return, can be an empty well
-            returnElements (str): String describing data to get on of [all, id-only, header-only, data-only, station-location-only
-                                                                       latest-change-only, requested]
         Returns:
-            witsml.wells: wells
-
-        Raises:
-            StoreException: If the soap server replies with an error
-            pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
+            list: version
         """
-
-        q_wells = witsml.wells(version=witsml.__version__)
-
-        q_wells.append(q_well)
-
-        reply_wells = self.soap_client.service.WMLS_GetFromStore(
-            "well",
-            q_wells.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+        versions = self.soap_client.service.WMLS_GetVersion(
+            "version",
+            OptionsIn="returnElements=None",
         )
 
-        return _parse_reply(reply_wells)
+        return reply_versions.split(',')
 
     def get_wellbores(
         self, q_wellbore: witsml.obj_wellbore, returnElements: str = "id-only"
@@ -301,3 +282,35 @@ class StoreClient:
         )
 
         return _parse_reply(reply_wellbores)
+
+    def get_wells(
+        self, q_well: witsml.obj_well, returnElements: str = "id-only"
+    ) -> witsml.wells:
+        """Get wells from a witsml store server
+
+        The default is only to return id-only, change to all when you know what well to get.
+
+
+        Args:
+            q_well (witsml.obj_well): A query well specifing objects to return, can be an empty well
+            returnElements (str): String describing data to get on of [all, id-only, header-only, data-only, station-location-only
+                                                                       latest-change-only, requested]
+        Returns:
+            witsml.wells: wells
+
+        Raises:
+            StoreException: If the soap server replies with an error
+            pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
+        """
+
+        q_wells = witsml.wells(version=witsml.__version__)
+
+        q_wells.append(q_well)
+
+        reply_wells = self.soap_client.service.WMLS_GetFromStore(
+            "well",
+            q_wells.toxml(),
+            OptionsIn=f"returnElements={returnElements}",
+        )
+
+        return _parse_reply(reply_wells)
