@@ -9,10 +9,7 @@ install:
 update:
 	@poetry update	
 format:
-	@poetry run blue .
-	@poetry run isort .
-	@poetry run pydocstyle .
-	@poetry run prospector
+	@poetry run darker .
 lint:
 	@poetry run darker --check .
 	@poetry run darker --isort .
