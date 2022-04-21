@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema  
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified"
+	targetNamespace="http://www.witsml.org/api/141" 
+	xmlns=          "http://www.witsml.org/api/141" 
+	xmlns:witsml=   "http://www.witsml.org/api/141"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="1.4.1">
+	<!--                                                         -->
+	<!-- Energistics License Agreement
+	This file is distributed under the Energistics License Agreement at
+	http://www.energistics.org
+	Use of this file constitutes agreement with the Energistics License Agreement.
+	Copyright (c) 2008 Energistics. All rights reserved.
+	Energistics, WITSML, PRODML and RESQML are trademarks or registered trademarks of Energistics.
+	-->
+	<!--                                                         -->
+	<xsd:include schemaLocation="cs_contact.xsd"/>
+	<xsd:include schemaLocation="typ_dataTypes.xsd"/>
+	<!--                                                         -->
+	<xsd:annotation>
+		<xsd:documentation>Defines the WITSML capClient object, used to communicate 
+		the detailed API Capabilities of the WITSML Client.
+		API Capabilities are used to further define and narrow the functionality 
+		defined by the API specification.
+		</xsd:documentation>
+	</xsd:annotation>
+	<!--                                                         -->
+	<xsd:element name="capClients" type="witsml:obj_capClients">
+		<xsd:annotation>
+			<xsd:documentation>The WITSML API mandated plural root element which allows 
+			multiple singular objects to be sent. The plural name is formed by adding
+			an "s" to the singular name.
+			Present only for consistency with other WITSML data objects (multiple 
+			capClient elements are not allowed). 
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--                                                         -->
+	<xsd:complexType name="obj_capClients">
+		<xsd:sequence>
+			<xsd:element name="capClient" type="witsml:obj_capClient" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Defines the singular Client Capabilities (capClient) element; only one can be specified. 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="witsml:str16" fixed="1.4.1" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>API schema version.  It is optional.
+				If the version is specified, its value must be set equal to the value specified by the 
+				version's fixed attribute. Note that this is different from the data schema version.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<!--                                                         -->
+	<xsd:complexType name="obj_capClient">
+		<xsd:sequence>
+			<xsd:element name="contact" type="witsml:cs_contact" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="description" type="witsml:str4096" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="name" type="witsml:str64" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="vendor" type="witsml:str64" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="version" type="witsml:str64" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="schemaVersion" type="witsml:str64" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+		</xsd:sequence>
+		<xsd:attribute name="apiVers" type="witsml:str16" use="required">
+			<xsd:annotation>
+				<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

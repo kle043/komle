@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified"
+	targetNamespace="http://www.witsml.org/api/141" 
+	xmlns=          "http://www.witsml.org/api/141" 
+	xmlns:witsml=   "http://www.witsml.org/api/141"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="1.4.1">
+	<!--                                                         -->
+	<!-- Energistics License Agreement
+	This file is distributed under the Energistics License Agreement at
+	http://www.energistics.org
+	Use of this file constitutes agreement with the Energistics License Agreement.
+	Copyright (c) 2008 Energistics. All rights reserved.
+	Energistics, WITSML, PRODML and RESQML are trademarks or registered trademarks of Energistics.
+	-->
+	<!--                                                         -->
+	<xsd:include schemaLocation="typ_dataTypes.xsd"/>
+	<!--                                                         -->
+	<xsd:complexType name="cs_function">
+		<xsd:sequence>
+			<xsd:element name="dataObject" type="witsml:objectWithConstraint" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="witsml:str64" use="required">
+			<xsd:annotation>
+				<xsd:documentation>See the API specification for a description of the use of this data.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>
