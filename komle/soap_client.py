@@ -14,6 +14,7 @@ if 'komle.bindings.v1411.write' in sys.modules:
 else:
     # Default to import read_bindings
     from komle.bindings.v1411.read import witsml
+    from komle.bindings.v1411.api import cap_server
 
 
 class RequestsTransport(HttpAuthenticated):
@@ -142,6 +143,19 @@ class StoreClient:
 
         return _parse_reply(reply_bhas)
 
+    def get_cap(self, dataVersion):
+        reply_cap = self.soap_client.service.WMLS_GetCap(
+            "cap",
+            OptionsIn=f"dataVersion={dataVersion}",
+        )
+        reply_new = (
+            reply_cap.CapabilitiesOut.replace("131", "141")
+            .replace("1.3.1", "1.4.1")
+            .replace("1.3.1.1", "1.4.1.1")
+            .replace("></", ">None</")
+        )
+        return cap_server.CreateFromDocument(reply_new)
+
     def get_logs(
         self, q_log: witsml.obj_log, returnElements: str = "id-only"
     ) -> witsml.logs:
@@ -237,19 +251,19 @@ class StoreClient:
         )
 
         return _parse_reply(reply_traj)
-    
+
     def get_version(self) -> list:
         """Get version from a witsml store server
 
         Returns:
             list: version
         """
-        versions = self.soap_client.service.WMLS_GetVersion(
+        reply_version = self.soap_client.service.WMLS_GetVersion(
             "version",
             OptionsIn="returnElements=None",
         )
 
-        return reply_versions.split(',')
+        return reply_version.split(",")
 
     def get_wellbores(
         self, q_wellbore: witsml.obj_wellbore, returnElements: str = "id-only"
