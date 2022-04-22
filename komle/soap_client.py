@@ -143,7 +143,19 @@ class StoreClient:
 
         return _parse_reply(reply_bhas)
 
-    def get_cap(self, dataVersion):
+    def get_cap(self, dataVersion: str) -> cap_server.obj_capServers:
+        """Get capabilities from a witsml store server.
+
+        Args:
+            dataVersion (str): Define the version witsml use in capServers
+
+        Returns:
+            cap_server.obj_capServers: capServers a collection of capServer
+
+        Raises:
+            StoreException: If the soap server replies with an error
+            pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
+        """
         reply_cap = self.soap_client.service.WMLS_GetCap(
             "cap",
             OptionsIn=f"dataVersion={dataVersion}",
@@ -257,6 +269,9 @@ class StoreClient:
 
         Returns:
             list: version
+
+        Raises:
+            StoreException: If the soap server replies with an error
         """
         reply_version = self.soap_client.service.WMLS_GetVersion(
             "version",
