@@ -1,7 +1,7 @@
 import json
 import sys
 from collections import OrderedDict
-from typing import Dict, List, Union
+from typing import Any, Dict, List, Union
 
 import pyxb
 import xmltodict
