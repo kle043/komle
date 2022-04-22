@@ -1,8 +1,10 @@
+import json
 import sys
 from collections import OrderedDict
-from typing import Dict, List, Union
+from typing import Any, Dict, List, Union
 
 import pyxb
+import xmltodict
 
 if 'komle.bindings.v20.witsml' in sys.modules:
     # Due to namespace collision we can't import bindings at the same time
@@ -36,10 +38,57 @@ LOG_PRIM_TYPES = {
 }
 
 
-def pretty_save(element, file_path: str):
-    with open(file_path, 'w') as xml_file:
-        xml_file.write(element.toDOM().toprettyxml())
+def pretty_save(element: "komle bindings", file_path: str) -> bool:
+    """Save element in  pretty XML formate
 
+    Args:
+        element (komle bindings): Any elements of the komle bindings
+        file_path (str): path where to save the file
+
+    Returns:
+        bool: True to successfully saved and False for error when saving
+    """
+    try:
+        with open(file_path, "w") as xml_file:
+            xml_file.write(element.toDOM().toprettyxml())
+            xml_file.close()
+    except:
+        return False
+
+    return True
+
+
+def json_save(element: "komle bindings", file_path: str) -> bool:
+    """Save element in JSON formate
+
+    Args:
+        element (komle bindings): Any elements of the komle bindings
+        file_path (str): path where to save the file
+
+    Returns:
+        bool: True to successfully saved and False for error when saving
+    """
+    try:
+        json_data = json.dumps(xmltodict.parse(element.toxml()))
+        with open(file_path, "w") as json_file:
+            json_file.write(json_data)
+            json_file.close()
+    except:
+        return False
+
+    return True
+
+
+def element_to_dict(element: "komle bindings") -> OrderedDict[str, Any]:
+    """Convert element from a komle bindings to a dict
+
+    Args:
+        element (komle bindings): Any elements of the komle bindings
+
+    Returns:
+        OrderedDict[str, Any]: A OrderedDict tags from xml in keys in the OrderedDict.
+    """
+    return xmltodict.parse(element.toxml())
 
 def logdata_dict(
     log: "witsml.obj_log", fill_missing: bool = True

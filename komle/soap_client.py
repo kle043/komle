@@ -13,6 +13,7 @@ if 'komle.bindings.v1411.write' in sys.modules:
     from komle.bindings.v1411.write import witsml
 else:
     # Default to import read_bindings
+    from komle.bindings.v1411.api import cap_server
     from komle.bindings.v1411.read import witsml
 
 
@@ -142,6 +143,31 @@ class StoreClient:
 
         return _parse_reply(reply_bhas)
 
+    def get_cap(self, dataVersion: str) -> cap_server.obj_capServers:
+        """Get capabilities from a witsml store server.
+
+        Args:
+            dataVersion (str): Define the version witsml use in capServers
+
+        Returns:
+            cap_server.obj_capServers: capServers a collection of capServer
+
+        Raises:
+            StoreException: If the soap server replies with an error
+            pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
+        """
+        reply_cap = self.soap_client.service.WMLS_GetCap(
+            "cap",
+            OptionsIn=f"dataVersion={dataVersion}",
+        )
+        reply_new = (
+            reply_cap.CapabilitiesOut.replace("131", "141")
+            .replace("1.3.1", "1.4.1")
+            .replace("1.3.1.1", "1.4.1.1")
+            .replace("></", ">None</")
+        )
+        return cap_server.CreateFromDocument(reply_new)
+
     def get_logs(
         self, q_log: witsml.obj_log, returnElements: str = "id-only"
     ) -> witsml.logs:
@@ -238,6 +264,22 @@ class StoreClient:
 
         return _parse_reply(reply_traj)
 
+    def get_version(self) -> list:
+        """Get version from a witsml store server
+
+        Returns:
+            list: version
+
+        Raises:
+            StoreException: If the soap server replies with an error
+        """
+        reply_version = self.soap_client.service.WMLS_GetVersion(
+            "version",
+            OptionsIn="returnElements=None",
+        )
+
+        return reply_version.split(",")
+
     def get_wellbores(
         self, q_wellbore: witsml.obj_wellbore, returnElements: str = "id-only"
     ) -> witsml.wellbores:
@@ -269,3 +311,35 @@ class StoreClient:
         )
 
         return _parse_reply(reply_wellbores)
+
+    def get_wells(
+        self, q_well: witsml.obj_well, returnElements: str = "id-only"
+    ) -> witsml.wells:
+        """Get wells from a witsml store server
+
+        The default is only to return id-only, change to all when you know what well to get.
+
+
+        Args:
+            q_well (witsml.obj_well): A query well specifing objects to return, can be an empty well
+            returnElements (str): String describing data to get on of [all, id-only, header-only, data-only, station-location-only
+                                                                       latest-change-only, requested]
+        Returns:
+            witsml.wells: wells
+
+        Raises:
+            StoreException: If the soap server replies with an error
+            pyxb.exception: If the reply is empty or the document fails to validate a pyxb exception is raised
+        """
+
+        q_wells = witsml.wells(version=witsml.__version__)
+
+        q_wells.append(q_well)
+
+        reply_wells = self.soap_client.service.WMLS_GetFromStore(
+            "well",
+            q_wells.toxml(),
+            OptionsIn=f"returnElements={returnElements}",
+        )
+
+        return _parse_reply(reply_wells)

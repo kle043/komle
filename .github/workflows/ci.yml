@@ -21,7 +21,7 @@ jobs:
           poetry run python -m pip install --upgrade pip
           poetry run pip install -U pip setuptools
           poetry install
-      - name: Install komle Plus 0.3
+      - name: Install komle Plus
         run: |
           poetry run pip install -U .
   lint:
@@ -57,7 +57,7 @@ jobs:
           poetry run python -m pip install --upgrade pip
           poetry run pip install -U pip setuptools
           poetry install
-      - name: Install komle Plus 0.3
+      - name: Install komle Plus
         run: |
           poetry run pip install -U .
       - name: Test with pytest
