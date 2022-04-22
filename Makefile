@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: install update format lint test sec
+.PHONY: install update format lint test sec build upload-pypi upload-pypitest
 
 install:
 	@poetry run python -m pip install --upgrade pip
