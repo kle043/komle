@@ -17,7 +17,7 @@ setup(
     license="Apache-2.0 License",
     description="A python library to help with WITSML v1.4.1.1 and v2.0",
     long_description=long_description,
-    long_description_context_type="text/markdown",
+    long_description_content_type="text/markdown",
     url="https://github.com/HemersonRafael/komle-plus",
     keywords=["pytohn", "soap-client", "witsml"],
     packages=find_packages(exclude=("tests",)),
