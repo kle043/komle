@@ -1,10 +1,10 @@
 import json
-import xmltodict
 import sys
 from collections import OrderedDict
 from typing import Dict, List, Union
 
 import pyxb
+import xmltodict
 
 if 'komle.bindings.v20.witsml' in sys.modules:
     # Due to namespace collision we can't import bindings at the same time
