@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: install update format lint test sec build upload-pypi upload-pypitest
+.PHONY: install update format lint test sec build upload-pypi upload-pypitest export
 
 install:
 	@poetry run python -m pip install --upgrade pip
@@ -23,3 +23,6 @@ upload-pypi:
 	@poetry run python -m twine upload dist/*
 upload-pypitest:
 	@poetry run python -m twine upload --verbose --repository testpypi dist/*
+export:
+	@poetry export -f requirements.txt --without-hashes  > requirements.txt
+	@poetry export --dev -f  requirements.txt --without-hashes  > requirements-dev.txt
