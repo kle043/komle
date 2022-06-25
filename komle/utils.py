@@ -51,7 +51,6 @@ def pretty_save(element: "komle bindings", file_path: str) -> bool:
     try:
         with open(file_path, "w") as xml_file:
             xml_file.write(element.toDOM().toprettyxml())
-            xml_file.close()
     except:
         return False
 
@@ -72,7 +71,6 @@ def json_save(element: "komle bindings", file_path: str) -> bool:
         json_data = json.dumps(xmltodict.parse(element.toxml()))
         with open(file_path, "w") as json_file:
             json_file.write(json_data)
-            json_file.close()
     except:
         return False
 

@@ -75,7 +75,7 @@ def simple_client(
 
 class StoreException(Exception):
     def __init__(self, reply):
-        super().__init__(f'{reply.Result}: {reply.SuppMsgOut}')
+        super().__init__( f' WITSMLStoreError -> Result: {reply.Result} SuppMsgOut: {reply.SuppMsgOut}')
         self.reply = reply
 
 
