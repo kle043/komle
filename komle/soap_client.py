@@ -43,7 +43,7 @@ def simple_client(
     service_url: str,
     username: str,
     password: str,
-    agent_name: str = "komle",
+    agent_name: str = "komle-plus",
     verify: Union[bool, str] = True,
 ) -> Client:
     """Create a simple soap client using Suds,
@@ -75,7 +75,9 @@ def simple_client(
 
 class StoreException(Exception):
     def __init__(self, reply):
-        super().__init__(f'{reply.Result}: {reply.SuppMsgOut}')
+        super().__init__(
+            f" WITSMLStoreError -> Result: {reply.Result} SuppMsgOut: {reply.SuppMsgOut}"
+        )
         self.reply = reply
 
 
@@ -92,7 +94,7 @@ class StoreClient:
         service_url: str,
         username: str,
         password: str,
-        agent_name: str = "komle",
+        agent_name: str = "komle-plus",
         verify: Union[bool, str] = True,
     ):
         """Create a GetFromStore client,
@@ -112,7 +114,10 @@ class StoreClient:
         )
 
     def get_bhaRuns(
-        self, q_bha: witsml.obj_bhaRun, returnElements: str = "id-only"
+        self,
+        q_bha: witsml.obj_bhaRun,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.bhaRuns:
         """Get bhaRuns from a witsml store server
 
@@ -123,6 +128,7 @@ class StoreClient:
             q_bha (witsml.obj_bhaRun): A query bhaRun specifing objects to return, can be an empty bhaRun
             returnElements (str): String describing data to get on of [all, id-only, header-only, data-only, station-location-only
                                                                        latest-change-only, requested]
+            OptionsIn (str): String describing more options [cascadedDelete, dataVersion]
         Returns:
             witsml.bhaRuns: bhaRuns a collection of bhaRun
 
@@ -138,12 +144,14 @@ class StoreClient:
         reply_bhas = self.soap_client.service.WMLS_GetFromStore(
             "bhaRun",
             q_bhas.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_bhas)
 
-    def get_cap(self, dataVersion: str) -> cap_server.obj_capServers:
+    def get_cap(
+        self, dataVersion: str, OptionsIn: str = ""
+    ) -> cap_server.obj_capServers:
         """Get capabilities from a witsml store server.
 
         Args:
@@ -158,7 +166,7 @@ class StoreClient:
         """
         reply_cap = self.soap_client.service.WMLS_GetCap(
             "cap",
-            OptionsIn=f"dataVersion={dataVersion}",
+            OptionsIn=f"dataVersion={dataVersion};{OptionsIn}",
         )
         reply_new = (
             reply_cap.CapabilitiesOut.replace("131", "141")
@@ -169,7 +177,10 @@ class StoreClient:
         return cap_server.CreateFromDocument(reply_new)
 
     def get_logs(
-        self, q_log: witsml.obj_log, returnElements: str = "id-only"
+        self,
+        q_log: witsml.obj_log,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.logs:
         """Get logs from a witsml store server
 
@@ -194,13 +205,18 @@ class StoreClient:
         q_logs.append(q_log)
 
         reply_logs = self.soap_client.service.WMLS_GetFromStore(
-            "log", q_logs.toxml(), OptionsIn=f"returnElements={returnElements}"
+            "log",
+            q_logs.toxml(),
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_logs)
 
     def get_mudLogs(
-        self, q_mudlog: witsml.obj_mudLog, returnElements: str = "id-only"
+        self,
+        q_mudlog: witsml.obj_mudLog,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.mudLogs:
         """Get mudLogs from a witsml store server
 
@@ -227,13 +243,16 @@ class StoreClient:
         reply_mudlogs = self.soap_client.service.WMLS_GetFromStore(
             "mudLog",
             q_mudlogs.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_mudlogs)
 
     def get_trajectorys(
-        self, q_traj: witsml.obj_trajectory, returnElements: str = "id-only"
+        self,
+        q_traj: witsml.obj_trajectory,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.trajectorys:
         """Get trajectorys from a witsml store server
 
@@ -259,7 +278,7 @@ class StoreClient:
         reply_traj = self.soap_client.service.WMLS_GetFromStore(
             "trajectory",
             q_trajs.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_traj)
@@ -281,7 +300,10 @@ class StoreClient:
         return reply_version.split(",")
 
     def get_wellbores(
-        self, q_wellbore: witsml.obj_wellbore, returnElements: str = "id-only"
+        self,
+        q_wellbore: witsml.obj_wellbore,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.wellbores:
         """Get wellbores from a witsml store server
 
@@ -307,13 +329,16 @@ class StoreClient:
         reply_wellbores = self.soap_client.service.WMLS_GetFromStore(
             "wellbore",
             q_wellbores.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_wellbores)
 
     def get_wells(
-        self, q_well: witsml.obj_well, returnElements: str = "id-only"
+        self,
+        q_well: witsml.obj_well,
+        returnElements: str = "id-only",
+        OptionsIn: str = "",
     ) -> witsml.wells:
         """Get wells from a witsml store server
 
@@ -339,7 +364,7 @@ class StoreClient:
         reply_wells = self.soap_client.service.WMLS_GetFromStore(
             "well",
             q_wells.toxml(),
-            OptionsIn=f"returnElements={returnElements}",
+            OptionsIn=f"returnElements={returnElements};{OptionsIn}",
         )
 
         return _parse_reply(reply_wells)

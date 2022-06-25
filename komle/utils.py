@@ -51,7 +51,6 @@ def pretty_save(element: "komle bindings", file_path: str) -> bool:
     try:
         with open(file_path, "w") as xml_file:
             xml_file.write(element.toDOM().toprettyxml())
-            xml_file.close()
     except:
         return False
 
@@ -72,14 +71,13 @@ def json_save(element: "komle bindings", file_path: str) -> bool:
         json_data = json.dumps(xmltodict.parse(element.toxml()))
         with open(file_path, "w") as json_file:
             json_file.write(json_data)
-            json_file.close()
     except:
         return False
 
     return True
 
 
-def element_to_dict(element: "komle bindings") -> OrderedDict[str, Any]:
+def element_to_dict(element: "komle bindings", xml_attribs: bool = False) -> OrderedDict[str, Any]:
     """Convert element from a komle bindings to a dict
 
     Args:
@@ -88,7 +86,7 @@ def element_to_dict(element: "komle bindings") -> OrderedDict[str, Any]:
     Returns:
         OrderedDict[str, Any]: A OrderedDict tags from xml in keys in the OrderedDict.
     """
-    return xmltodict.parse(element.toxml())
+    return xmltodict.parse(element.toxml(), xml_attribs=xml_attribs)
 
 def logdata_dict(
     log: "witsml.obj_log", fill_missing: bool = True
