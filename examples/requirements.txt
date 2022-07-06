@@ -1,3 +1,3 @@
 komle==0.2
 pandas==1.0.1
-lxml==4.6.2
+lxml==4.9.1
