@@ -13,7 +13,7 @@ except Exception:
 
 setup(
     name="komle-plus",
-    version="0.3.2",
+    version="0.3.2.1",
     license="Apache-2.0 License",
     description="A python library to help with WITSML v1.4.1.1 and v2.0",
     long_description=long_description,
@@ -28,7 +28,7 @@ setup(
         "komle": ["WMLS.WSDL", "witsmlUnitDict.xml"],
     },
     install_requires=[
-        "suds-py3==1.4.5",
+        "suds-py3==1.4.5.0",
         "PyXB-X==1.2.6",
         "requests==2.27.1",
         "xmltodict==0.12.0",

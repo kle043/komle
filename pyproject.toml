@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "komle-plus"
-version = "0.3.2"
+version = "0.3.2.1"
 description = "A python library to help with WITSML v1.4.1.1 and v2.0"
 authors = ["Hemerson Rafael <rafaelpontes1995@gmail.com>"]
 packages = [
@@ -9,7 +9,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-suds-py3 = "1.4.5"
+suds-py3 = "1.4.5.0"
 PyXB-X = "1.2.6"
 requests = "2.27.1"
 xmltodict = "^0.12.0"
