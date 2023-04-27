@@ -67,6 +67,11 @@ class StoreException(Exception):
 
 def _parse_reply(reply):
     if reply.Result == 1:
+        '''Function Completed Successfully'''
+        return witsml.CreateFromDocument(reply.XMLout)
+    elif reply.Result == 2:
+        '''<!-- Partial success: Function completed successfully but some growing data-object data-nodes were not returned. -->
+            Function completed successfully but some growing object data-nodes were not returned.'''
         return witsml.CreateFromDocument(reply.XMLout)
     else:
         raise StoreException(reply)
