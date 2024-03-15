@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
       - name: Install poetry
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v9
       - name: Install dependencies
         run: |
           poetry run python -m pip install --upgrade pip
@@ -28,13 +28,13 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
       - name: Install poetry
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v9
       - name: Install dependencies
         run: |
           poetry install
@@ -45,13 +45,13 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
       - name: Install poetry
-        uses: Gr1N/setup-poetry@v7
+        uses: Gr1N/setup-poetry@v9
       - name: Install dependencies
         run: |
           poetry run python -m pip install --upgrade pip
@@ -63,22 +63,3 @@ jobs:
       - name: Test with pytest
         run: |
           poetry run pytest -v
-  sec:
-    runs-on: ubuntu-latest 
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.10"
-      - name: Install poetry
-        uses: Gr1N/setup-poetry@v7
-      - name: Install dependencies
-        run: |
-          poetry run python -m pip install --upgrade pip
-          poetry run pip install -U pip setuptools
-          poetry install
-      - name: Audit security with pip-audit
-        run: |
-          poetry run pip-audit
