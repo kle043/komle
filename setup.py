@@ -12,7 +12,7 @@ setup(
       package_data={
                     'komle': ['WMLS.WSDL', 'witsmlUnitDict.xml'],
                    },
-      install_requires=['suds-py3==1.4.0.0',
+      install_requires=['suds-py3==1.4.4.1',
                         'PyXB==1.2.6',
 
                        ], 
